@@ -13,3 +13,6 @@ export const TO_NUMBER_DEFAULTS: ToNumberOptions = {
 };
 
 export const TO_STRING_DEFAULTS: ToStringOptions = {};
+
+export const WORD_CHARS =
+  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-';
