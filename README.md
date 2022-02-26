@@ -42,6 +42,10 @@ Tiny collection of essential JavaScript utilities.
   - [**shuffle**](src/random/shuffle/index.ts) — shuffles array in random order.
   - TODO: **weighted** — returns random value from an array of values and weights.
 
+### TODO: Seedable Random
+
+Just like random utilities above, but with seeding support.
+
 ### Timestamps
 
   - [**ts**](src/timestamps/ts/index.ts) — returns a Unix timestamp for current or specified date.

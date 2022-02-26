@@ -3,6 +3,12 @@ import { WithRNGOption } from '../../types/WithRNGOption';
 
 export type ShuffleOptions = {} & WithRNGOption;
 
+/**
+ * Shuffles array in random order.
+ *
+ * *Note:* Note the non-primitive values -- shuffle does not perform
+ * deep copy for arrays.
+ */
 export const shuffle = <T = unknown>(
   values: T[],
   options: ShuffleOptions = {}

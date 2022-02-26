@@ -2,9 +2,16 @@ import { WithRNGOption } from '../../types/WithRNGOption';
 import { float } from '../float';
 
 export type BoolOptions = {
+  /**
+   * Chance for true value, must be a float number between 0 and 1
+   * inclusively.
+   */
   chance?: number;
 } & WithRNGOption;
 
+/**
+ * Returns random boolean value, false or true.
+ */
 export const bool = (options: BoolOptions = {}): boolean => {
   const { chance, rng }: BoolOptions = {
     chance: 0.5,

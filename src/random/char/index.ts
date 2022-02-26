@@ -3,9 +3,16 @@ import { WithRNGOption } from '../../types/WithRNGOption';
 import { pick } from '../pick';
 
 export type CharOptions = {
+  /**
+   * Alphabet of characters where to pick a value.
+   * @default `[A-z0-9]`
+   */
   alphabet?: string;
 } & WithRNGOption;
 
+/**
+ * Returns random character value (string with length of one item)
+ */
 export const char = (options: CharOptions = {}): string => {
   const { alphabet, rng }: CharOptions = {
     alphabet: WORD_CHARS,

@@ -3,6 +3,9 @@ import { int } from '../int';
 
 export type PickOptions = {} & WithRNGOption;
 
+/**
+ * Returns random value from an array of one or more items.
+ */
 export const pick = <T = unknown>(
   values: T[],
   options: PickOptions = {}
