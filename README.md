@@ -29,7 +29,7 @@ Tiny collection of essential JavaScript utilities.
   - [**toString**](src/mappers/toString/index.ts) — maps value into a string.
   - [**filterObject**](src/mappers/filterObject/index.ts) — filters object entries by predicate like standard array's filter.
   - [**mapObject**](src/mappers/mapObject/index.ts) — maps object entries by callback function like standard array's map.
-  - [**repeat**](src/mappers/repeat/index.ts) — repeats some action specified number of times.
+  - [**repeat**](src/mappers/repeat/index.ts) — repeats some action for a specified number of times.
 
 ### Random
 
