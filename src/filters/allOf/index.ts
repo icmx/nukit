@@ -1,3 +1,6 @@
+/**
+ * Returns true if all values in array meets filter condition.
+ */
 export const allOf = <T = unknown>(
   values: T[],
   filter: (value: unknown) => boolean

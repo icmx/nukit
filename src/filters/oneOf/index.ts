@@ -1,3 +1,9 @@
+/**
+ * Returns true if at least one of values in array meets filter
+ * condition.
+ * @param {unknown[]} values
+ * @returns {boolean}
+ */
 export const anyOf = <T = unknown>(
   values: T[],
   filter: (value: unknown) => boolean

@@ -16,7 +16,7 @@ Tiny collection of essential JavaScript utilities.
   - [**isString**](src/filters/isString/index.ts) — returns true if value is a string.
   - [**isPrimitive**](src/filters/isPrimitive/index.ts) — returns true if value is a primitive, i.e. undefined, null, boolean, number or string.
   - [**isArray**](src/filters/isArray/index.ts) — returns true if value is array of any items.
-  - [**isObject**](src/filters/isObject/index.ts) — returns true if value is object but not null nor array.
+  - [**isObject**](src/filters/isObject/index.ts) — returns true if value is an object but not null nor array.
     - TODO: Add options to pass nulls and arrays
   - [**isEmpty**](src/filters/isEmpty/index.ts) — returns true if value is empty, i.e. undefined, null, empty string, empty array or empty object (i.e. object without own properties)
   - TODO: **equally** — returns true if value meets all filters conditions
