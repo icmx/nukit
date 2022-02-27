@@ -4,7 +4,7 @@
  * @param {unknown[]} values
  * @returns {boolean}
  */
-export const anyOf = <T = unknown>(
+export const oneOf = <T = unknown>(
   values: T[],
   filter: (value: unknown) => boolean
 ): boolean => {
