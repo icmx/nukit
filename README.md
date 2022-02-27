@@ -26,12 +26,15 @@ Tiny collection of essential JavaScript utilities.
 
 ### Mappers
 
-  - [**toBoolean**](src/mappers/toBoolean/index.ts) — maps value into a boolean if possible.
-  - [**toNumber**](src/mappers/toNumber/index.ts) — maps value into a number if possible.
-  - [**toString**](src/mappers/toString/index.ts) — maps value into a string.
+  - [**toBoolean**](src/mappers/toBoolean/index.ts) — maps value into a boolean if possible. [(tests)](src/mappers/toBoolean/index.test.ts)
+  - [**toNumber**](src/mappers/toNumber/index.ts) — maps value into a number if possible. [(tests)](src/mappers/toNumber/index.test.ts)
+  - [**toString**](src/mappers/toString/index.ts) — maps value into a string. [(tests)](src/mappers/toString/index.test.ts)
   - [**filterObject**](src/mappers/filterObject/index.ts) — filters object entries by predicate like standard array's filter.
+    - TODO: add option to filter prototype properties too
   - [**mapObject**](src/mappers/mapObject/index.ts) — maps object entries by callback function like standard array's map.
-  - [**repeat**](src/mappers/repeat/index.ts) — repeats some action for a specified number of times.
+    - TODO: add option to filter prototype properties too
+  - [**repeat**](src/mappers/repeat/index.ts) — repeats some action for a specified number of times. [(tests)](src/mappers/repeat/index.test.ts)
+    - TODO: add option to pass iterator
 
 ### Random
 
