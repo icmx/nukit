@@ -29,22 +29,22 @@ Tiny collection of essential JavaScript utilities.
   - [**toBoolean**](src/mappers/toBoolean/index.ts) — maps value into a boolean if possible. [(tests)](src/mappers/toBoolean/index.test.ts)
   - [**toNumber**](src/mappers/toNumber/index.ts) — maps value into a number if possible. [(tests)](src/mappers/toNumber/index.test.ts)
   - [**toString**](src/mappers/toString/index.ts) — maps value into a string. [(tests)](src/mappers/toString/index.test.ts)
-  - [**filterObject**](src/mappers/filterObject/index.ts) — filters object entries by predicate like standard array's filter.
+  - [**filterObject**](src/mappers/filterObject/index.ts) — filters object entries by predicate like standard array's filter. [(tests)](src/mappers/filterObject/index.test.ts)
     - TODO: add option to filter prototype properties too
-  - [**mapObject**](src/mappers/mapObject/index.ts) — maps object entries by callback function like standard array's map.
+  - [**mapObject**](src/mappers/mapObject/index.ts) — maps object entries by callback function like standard array's map. [(tests)](src/mappers/)
     - TODO: add option to filter prototype properties too
   - [**repeat**](src/mappers/repeat/index.ts) — repeats some action for a specified number of times. [(tests)](src/mappers/repeat/index.test.ts)
     - TODO: add option to pass iterator
 
 ### Random
 
-  - [**bool**](src/random/bool/index.ts) — returns random boolean value.
-  - [**int**](src/random/int/index.ts) — returns random integer number value.
-  - [**float**](src/random/float/index.ts) — returns random float number value.
-  - [**char**](src/random/char/index.ts) — returns random character (string with only one item).
-  - [**str**](src/random/str/index.ts) — returns random string value.
-  - [**pick**](src/random/pick/index.ts) — returns random value from an array of one or more items.
-  - [**shuffle**](src/random/shuffle/index.ts) — shuffles array in random order.
+  - [**bool**](src/random/bool/index.ts) — returns random boolean value. [(tests)](src/random/bool/index.test.ts)
+  - [**int**](src/random/int/index.ts) — returns random integer number value. [(tests)](src/random/int/index.test.ts)
+  - [**float**](src/random/float/index.ts) — returns random float number value. [(float)](src/random/float/index.test.ts)
+  - [**char**](src/random/char/index.ts) — returns random character (string with only one item). [(char)](src/random/char/index.test.ts)
+  - [**str**](src/random/str/index.ts) — returns random string value. [(tests)](src/random/str/index.test.ts)
+  - [**pick**](src/random/pick/index.ts) — returns random value from an array of one or more items. [(tests)](src/random/pick/index.test.ts)
+  - [**shuffle**](src/random/shuffle/index.ts) — shuffles array in random order. [(tests)](src/random/shuffle/index.test.ts)
   - TODO: **weighted** — returns random value from an array of values and weights.
 
 ### TODO: Seedable Random
@@ -53,4 +53,4 @@ Just like random utilities above, but with seeding support.
 
 ### Timestamps
 
-  - [**ts**](src/timestamps/ts/index.ts) — returns a Unix timestamp for current or specified date.
+  - [**ts**](src/timestamps/ts/index.ts) — returns a Unix timestamp for current or specified date. [(tests)](src/timestamps/ts/index.test.ts)
