@@ -1,6 +1,9 @@
 import { shuffle, ShuffleOptions } from '../../random/shuffle';
 import { createMulberry32RNG } from '../../utils/createMulberry32RNG';
 
+/**
+ * Returns seeded version of shuffle function.
+ */
 export const seedShuffle = (seed: number) => {
   const rng = createMulberry32RNG(seed);
 
