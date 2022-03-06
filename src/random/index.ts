@@ -5,3 +5,4 @@ export * from './int';
 export * from './pick';
 export * from './shuffle';
 export * from './str';
+export * from './weghted';
