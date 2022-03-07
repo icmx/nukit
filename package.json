@@ -1,13 +1,18 @@
 {
   "name": "nukit",
-  "private": true,
   "version": "0.0.0",
   "description": "Tiny collection of essential JavaScript utilities",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/icmx/nukit.git"
   },
-  "keywords": [],
+  "keywords": [
+    "collection",
+    "helpers",
+    "random",
+    "small",
+    "utils"
+  ],
   "author": "icmx",
   "license": "MIT",
   "bugs": {
@@ -26,5 +31,8 @@
   "scripts": {
     "build": "tsc",
     "test": "jest"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
