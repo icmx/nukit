@@ -3,11 +3,11 @@ import { WithRNGOption } from '../../types/WithRNGOption';
 
 export type WeightedOptions = {} & WithRNGOption;
 
-export type WeightedEntry<T = unknown> = [T, number?];
+export type WeightedEntry<T = unknown> = [T, number];
 
 export const weighted = <T = unknown>(
   values: WeightedEntry<T>[],
-  options: WeightedOptions
+  options: WeightedOptions = {}
 ): T => {
   const { rng }: WeightedOptions = {
     rng: Math.random,
@@ -16,7 +16,7 @@ export const weighted = <T = unknown>(
 
   if (!values.length) {
     throw new TypeError(
-      'Array should include at least one item for picking'
+      'Values array should include at least one item'
     );
   }
 
@@ -36,7 +36,7 @@ export const weighted = <T = unknown>(
       throw new TypeError('Weight should be finite number');
     }
 
-    if (weight && weight > 0) {
+    if (weight > 0) {
       sum += weight;
     }
   }
@@ -45,18 +45,18 @@ export const weighted = <T = unknown>(
     throw new TypeError('No valid weights in array if values');
   }
 
-  let index = rng() * sum;
+  let selected = rng() * sum;
   let total = 0;
+  let index = -1;
   let lastGoodIndex = -1;
-  let choosenIndex = -1;
 
   for (let i = 0; i < values.length; i++) {
     const weight = values[i][1];
-    total += weight ?? 0;
+    total += weight;
 
-    if (weight && weight > 0) {
-      if (index <= total) {
-        choosenIndex = i;
+    if (weight > 0) {
+      if (selected <= total) {
+        index = i;
         break;
       }
 
@@ -64,9 +64,9 @@ export const weighted = <T = unknown>(
     }
 
     if (i === values.length - 1) {
-      choosenIndex = lastGoodIndex;
+      index = lastGoodIndex;
     }
   }
 
-  return values[choosenIndex][0];
+  return values[index][0];
 };
