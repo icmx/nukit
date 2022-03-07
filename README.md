@@ -58,7 +58,7 @@ Just like random utilities above, but with seeding support.
   - [**seedStr**](src/seedable/seedStr/index.ts) — creates seeded version of str function.
   - [**seedPick**](src/seedable/seedPick/index.ts) — creates seeded version of pick function.
   - [**seedShuffle**](src/seedable/seedShuffle/index.ts) — creates seeded version of shuffle function.
-
+  - [**weighted**](src/seedable/seedWeighted/index.ts) — creates seeded version of weighted function.
 
 ### Timestamps
 

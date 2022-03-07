@@ -5,3 +5,4 @@ export * from './seedInt';
 export * from './seedPick';
 export * from './seedShuffle';
 export * from './seedStr';
+export * from './seedWeighted';
