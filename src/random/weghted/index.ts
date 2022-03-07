@@ -5,6 +5,14 @@ export type WeightedOptions = {} & WithRNGOption;
 
 export type WeightedEntry<T = unknown> = [T, number];
 
+/**
+ * Returns weighted random value from an array of values and weights.
+ *
+ * *Note:* current implementation is mostly based on same utility from
+ * Chance library (https://chancejs.com/).
+ *
+ * See https://github.com/chancejs/chancejs/blob/859e555e29725df471d8110ad73c303e8a7f03b3/chance.js#L720
+ */
 export const weighted = <T = unknown>(
   values: WeightedEntry<T>[],
   options: WeightedOptions = {}

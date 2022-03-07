@@ -45,9 +45,11 @@ Tiny collection of essential JavaScript utilities.
   - [**str**](src/random/str/index.ts) — returns random string value. [(tests)](src/random/str/index.test.ts)
   - [**pick**](src/random/pick/index.ts) — returns random value from an array of one or more items. [(tests)](src/random/pick/index.test.ts)
   - [**shuffle**](src/random/shuffle/index.ts) — shuffles array in random order. [(tests)](src/random/shuffle/index.test.ts)
-  - TODO: **weighted** — returns random value from an array of values and weights.
+  - [**weighted**](src/random/weghted/index.ts) — returns weighted random value from an array of values and weights. [(tests)](src/random/weghted/index.test.ts)
 
 ### Seedable Random
+
+Just like random utilities above, but with seeding support.
 
   - [**seedBool**](src/seedable/seedBool/index.ts) — creates seeded version of bool function.
   - [**seedInt**](src/seedable/seedInt/index.ts) — creates seeded version of char function.
@@ -57,7 +59,6 @@ Tiny collection of essential JavaScript utilities.
   - [**seedPick**](src/seedable/seedPick/index.ts) — creates seeded version of pick function.
   - [**seedShuffle**](src/seedable/seedShuffle/index.ts) — creates seeded version of shuffle function.
 
-Just like random utilities above, but with seeding support.
 
 ### Timestamps
 
