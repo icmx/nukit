@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "noImplicitAny": true,
-    "target": "es6",
-    "moduleResolution": "node",
-    "lib": ["ES2021"],
+    "baseUrl": ".",
     "declaration": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
+    "target": "es6"
   },
   "include": ["src/index.ts"],
   "exclude": ["node_modules", "test"]
