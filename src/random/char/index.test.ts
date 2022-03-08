@@ -6,7 +6,7 @@ describe(`${char.name} function`, () => {
     const alphabet = WORD_CHARS;
     const results: boolean[] = [];
 
-    for (let i = 0; i < 1_000_000; i++) {
+    for (let i = 0; i < 1000; i++) {
       const result = char({ alphabet });
       results.push(alphabet.includes(result));
     }
