@@ -15,7 +15,7 @@ export const isPrimitive = (value: unknown): value is Primitive => {
     isUndefined(value) ||
     isNull(value) ||
     isBoolean(value) ||
-    isNumber(value) ||
+    isNumber(value, { allowInfinity: true, allowNaN: true }) ||
     isString(value)
   );
 };

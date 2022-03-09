@@ -9,7 +9,8 @@ const { arrayEmptyMock, arrayFalse42JohnDoeMock } = MOCKS;
 describe(`${allOf.name} function`, () => {
   it('should throw error if values are not in array', () => {
     expect(() => {
-      allOf(undefined as any, isUndefined);
+      // @ts-ignore
+      allOf(undefined, isUndefined);
     }).toThrow();
   });
 

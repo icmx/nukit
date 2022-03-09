@@ -10,8 +10,18 @@ describe(`${isNumber.name} function`, () => {
       number42p525Mock: true,
       numberMinus42Mock: true,
       numberMinus42p525Mock: true,
-      numberNaNMock: true,
-      numberInfinityMock: true,
     })
   );
+
+  it('should return true for infinity only if appropriate option is enabled', () => {
+    expect(isNumber(-Infinity)).toBe(false);
+    expect(isNumber(-Infinity, { allowInfinity: true })).toBe(true);
+    expect(isNumber(Infinity)).toBe(false);
+    expect(isNumber(Infinity, { allowInfinity: true })).toBe(true);
+  });
+
+  it('should return true for nan only if appropriate option is enabled', () => {
+    expect(isNumber(NaN)).toBe(false);
+    expect(isNumber(NaN, { allowNaN: true })).toBe(true);
+  });
 });
