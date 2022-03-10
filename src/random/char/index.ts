@@ -11,7 +11,7 @@ export type CharOptions = {
 } & WithRNGOption;
 
 /**
- * Returns random character value (string with length of one item)
+ * Returns random character value.
  */
 export const char = (options: CharOptions = {}): string => {
   const { alphabet, rng }: CharOptions = {
