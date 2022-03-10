@@ -4,9 +4,13 @@ Tiny collection of essential JavaScript utilities.
 
 ## Usage
 
+Install:
+
 ```
-npm install nukit
+npm i nukit
 ```
+
+Import:
 
 ```ts
 import { isNumber, oneOf, pick } from 'nukit';
@@ -21,7 +25,7 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript — nice types support
-  - Small & Simple — only 34 functions in 5 kilobytes of compiled code
+  - Small & Simple — 28 essential functions with 10 shortcuts in about 5 kilobytes of compiled code
   - Modern — it doesn't rewrites ESNext features that already exists
 
 ## Contents
@@ -40,7 +44,9 @@ const value = pick(['apple', 'banana', 'carrot']);
   - [**allOf**](src/filters/allOf/index.ts) — returns true if all values in array meets filter condition
   - [**oneOf**](src/filters/oneOf/index.ts) — returns true if at least one of values in array meets filter condition
   - [**equally**](src/filters/equally/index.ts) — returns true if all of predicates are true
+    - [**and**](src/filters/and/index.ts) — alias
   - [**neither**](src/filters/neither/index.ts) — returns true if at least one of predicates is true
+    - [**or**](src/filters/or/index.ts) — alias
 
 ### Mappers
 

@@ -3,6 +3,8 @@ import { resolvePredicate } from '../../utils/resolvePredicate';
 
 /**
  * Returns true if all of predicates are true.
+ *
+ * **and** — alias.
  */
 export const equally = (...predicates: Predicate[]): boolean => {
   for (let i = 0; i < predicates.length; i++) {

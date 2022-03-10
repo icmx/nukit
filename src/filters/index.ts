@@ -1,4 +1,5 @@
 export * from './allOf';
+export * from './and';
 export * from './equally';
 export * from './isArray';
 export * from './isBoolean';
@@ -11,3 +12,4 @@ export * from './isString';
 export * from './isUndefined';
 export * from './neither';
 export * from './oneOf';
+export * from './or';
