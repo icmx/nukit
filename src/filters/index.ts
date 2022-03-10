@@ -8,4 +8,5 @@ export * from './isObject';
 export * from './isPrimitive';
 export * from './isString';
 export * from './isUndefined';
+export * from './neither';
 export * from './oneOf';
