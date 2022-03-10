@@ -1,4 +1,5 @@
 export * from './allOf';
+export * from './equally';
 export * from './isArray';
 export * from './isBoolean';
 export * from './isEmpty';

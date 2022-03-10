@@ -9,5 +9,7 @@ export const resolvePredicate = (predicate: Predicate): boolean => {
     return predicate();
   }
 
-  throw new TypeError('Predicate should be a boolean or function ');
+  throw new TypeError(
+    'Predicate should be a boolean or a function that returns a boolean'
+  );
 };
