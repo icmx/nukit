@@ -39,6 +39,8 @@ const value = pick(['apple', 'banana', 'carrot']);
   - [**isEmpty**](src/filters/isEmpty/index.ts) — returns true if value is empty, i.e. undefined, null, empty string, empty array or empty object (i.e. object without own properties)
   - [**allOf**](src/filters/allOf/index.ts) — returns true if all values in array meets filter condition
   - [**oneOf**](src/filters/oneOf/index.ts) — returns true if at least one of values in array meets filter condition
+  - [**equally**](src/filters/equally/index.ts) — returns true if all of predicates are true
+  - [**neither**](src/filters/neither/index.ts) — returns true if at least one of predicates is true
 
 ### Mappers
 
