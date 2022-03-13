@@ -33,6 +33,14 @@ describe(`${repeat.name} function`, () => {
     const times = 100;
     const results = repeat(() => 'a', { times });
 
-    expect(results.join('')).toBe('a'.repeat(times))
+    expect(results.join('')).toBe('a'.repeat(times));
+  });
+
+  it('should take iterator correctly', () => {
+    const times = 100;
+
+    const results = repeat((step) => step + 1, { times });
+
+    expect(results[times - 1]).toBe(times);
   });
 });

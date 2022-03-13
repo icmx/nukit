@@ -1,4 +1,7 @@
 export type RepeatOptions = {
+  /**
+   * How many times to repeat some action. Once by default.
+   */
   times?: number;
 };
 
@@ -7,7 +10,7 @@ export type RepeatOptions = {
  * of action results if any.
  */
 export const repeat = <T = void>(
-  callback: (...args: any[]) => T,
+  action: (step: number) => T,
   options: RepeatOptions = {}
 ): T[] => {
   const { times }: RepeatOptions = { times: 1, ...options };
@@ -17,14 +20,13 @@ export const repeat = <T = void>(
   }
 
   if (times < 1) {
-    throw new RangeError('times should be greater than 0')
+    throw new RangeError('times should be greater than 0');
   }
-
 
   let result: T[] = [];
 
   for (let i = 0; i < times; i++) {
-    result.push(callback());
+    result.push(action(i));
   }
 
   return result;
