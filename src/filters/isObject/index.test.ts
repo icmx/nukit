@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isObject } from './index';
 
-describe(`${isObject} function`, () => {
+describe(nameOf(isObject), () => {
   it(
     'should return true only for object values',
     createFilterTests(isObject, {

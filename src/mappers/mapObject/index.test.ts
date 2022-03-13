@@ -1,7 +1,8 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { isNull } from '../../filters/isNull';
 import { mapObject } from './index';
 
-describe(`${mapObject.name} function`, () => {
+describe(nameOf(mapObject), () => {
   it('should map object properties', () => {
     const exampleSource = {
       a: 'hello',

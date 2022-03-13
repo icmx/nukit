@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isPrimitive } from './index';
 
-describe(`${isPrimitive.name} function`, () => {
+describe(nameOf(isPrimitive), () => {
   it(
     'should return true only for null, undefined, boolean, number or string values',
     createFilterTests(isPrimitive, {

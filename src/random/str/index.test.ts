@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { str } from './index';
 
-describe(`${str.name} function`, () => {
+describe(nameOf(str), () => {
   it('should calculate result value length correctly', () => {
     for (let i = 0; i < 10; i++) {
       const value = str({ minLength: 10, maxLength: 100 });

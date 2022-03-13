@@ -1,4 +1,5 @@
 import { MOCKS } from '../../../test/constants';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isNumber } from '../isNumber';
 import { isPrimitive } from '../isPrimitive';
 import { isUndefined } from '../isUndefined';
@@ -6,7 +7,7 @@ import { allOf } from './index';
 
 const { arrayEmptyMock, arrayFalse42JohnDoeMock } = MOCKS;
 
-describe(`${allOf.name} function`, () => {
+describe(nameOf(allOf), () => {
   it('should throw error if values are not in array', () => {
     expect(() => {
       // @ts-ignore

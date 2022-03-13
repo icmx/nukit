@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { bool } from './index';
 
-describe(`${bool.name} function`, () => {
+describe(nameOf(bool), () => {
   it('should return only false values or true values when chance is 0 or 1', () => {
     const falseOnlys: boolean[] = [];
     const trueOnlys: boolean[] = [];

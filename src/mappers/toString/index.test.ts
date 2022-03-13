@@ -1,7 +1,8 @@
 import { MOCKS } from '../../../test/constants';
+import { nameOf } from '../../../test/utils/nameOf';
 import { toString } from './index'
 
-describe(`${toString.name} function`, () => {
+describe(nameOf(toString), () => {
   it('should pass a value if it is a string already', () => {
     expect(toString(MOCKS.stringEmptyMock)).toBe(MOCKS.stringEmptyMock);
     expect(toString(MOCKS.stringLatinMock)).toBe(MOCKS.stringLatinMock);

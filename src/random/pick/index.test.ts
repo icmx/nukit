@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { pick } from './index';
 
-describe(`${pick.name} function`, () => {
+describe(nameOf(pick), () => {
   it('should return same value from array with one item', () => {
     expect(pick(['apple'])).toBe('apple');
   });

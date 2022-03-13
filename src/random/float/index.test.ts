@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { float } from './index';
 
-describe(`${float.name}`, () => {
+describe(nameOf(float), () => {
   it('should return random float value from 0 (inclusive) to 1 (exclusive)', () => {
     const results: boolean[] = [];
 

@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { ts } from './index';
 
-describe('ts function', () => {
+describe(nameOf(ts), () => {
   it('should return current date milliseconds by default', () => {
     jest.useFakeTimers().setSystemTime(new Date().getTime());
     const currentTs = ts();

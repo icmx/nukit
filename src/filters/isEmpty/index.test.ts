@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isEmpty } from './index';
 
-describe(`${isEmpty.name} function`, () => {
+describe(nameOf(isEmpty), () => {
   it(
     'should return true only if value is undefined, null, empty string, empty array or empty object',
     createFilterTests(isEmpty, {
@@ -19,7 +20,7 @@ describe(`${isEmpty.name} function`, () => {
   it('should return true for custom empty values', () => {
     const emptyValues = [false, 0, 'none'];
 
-    emptyValues.forEach(emptyValue => {
+    emptyValues.forEach((emptyValue) => {
       expect(isEmpty(emptyValue, { emptyValues })).toBe(true);
     });
   });

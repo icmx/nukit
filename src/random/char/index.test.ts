@@ -1,7 +1,8 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { WORD_CHARS } from '../../constants';
 import { char } from './index';
 
-describe(`${char.name} function`, () => {
+describe(nameOf(char), () => {
   it('should return random character from specified alphabet', () => {
     const alphabet = WORD_CHARS;
     const results: boolean[] = [];

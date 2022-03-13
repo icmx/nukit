@@ -1,7 +1,8 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { FallbackHandler } from '../../types/FallbackHandler';
 import { toNumber } from './index';
 
-describe(`${toNumber.name} function`, () => {
+describe(nameOf(toNumber), () => {
   it('should return undefined if value cannot be mapped into a number by default', () => {
     expect(toNumber(null)).toBe(undefined);
     expect(toNumber('two')).toBe(undefined);

@@ -1,3 +1,4 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { weighted, WeightedEntry } from './index';
 
 /**
@@ -9,7 +10,7 @@ import { weighted, WeightedEntry } from './index';
  *   - https://dev.to/trekhleb/weighted-random-algorithm-in-javascript-1pdc
  *   - https://github.com/trekhleb/javascript-algorithms/blob/99945f30deba9fb0ec5077e07ed093d0a531f1c1/src/algorithms/statistics/weighted-random/__test__/weightedRandom.test.js
  */
-describe(`${weighted.name} function`, () => {
+describe(nameOf(weighted), () => {
   it('should throw error if values array has no values', () => {
     expect(() => {
       const error = weighted([]);

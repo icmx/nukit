@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isUndefined } from './index';
 
-describe(`${isUndefined.name} function`, () => {
+describe(nameOf(isUndefined), () => {
   it(
     'should return true for undefined value only',
     createFilterTests(isUndefined, {

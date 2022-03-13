@@ -1,7 +1,8 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { isNull } from '../../filters/isNull';
 import { filterObject } from './index';
 
-describe(`${filterObject.name} function`, () => {
+describe(nameOf(filterObject), () => {
   it('should filter object properties', () => {
     const exampleSource = {
       a: 'hello',

@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isString } from './index';
 
-describe(`${isString.name} function`, () => {
+describe(nameOf(isString), () => {
   it(
     'should return true for string value only',
     createFilterTests(isString, {

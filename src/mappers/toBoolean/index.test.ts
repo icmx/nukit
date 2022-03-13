@@ -1,10 +1,10 @@
-import { MOCKS } from '../../../test/constants';
+import { nameOf } from '../../../test/utils/nameOf';
 import { toBoolean } from './index';
 
-describe(`${toBoolean.name} function`, () => {
+describe(nameOf(toBoolean), () => {
   it('should pass already boolean values', () => {
-    expect(toBoolean(MOCKS.booleanFalseMock)).toBe(false);
-    expect(toBoolean(MOCKS.booleanTrueMock)).toBe(true);
+    expect(toBoolean(false)).toBe(false);
+    expect(toBoolean(true)).toBe(true);
   });
 
   it('should treat string false and true as boolean false and true by default', () => {

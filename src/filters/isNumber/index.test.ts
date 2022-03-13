@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isNumber } from './index';
 
-describe(`${isNumber.name} function`, () => {
+describe(nameOf(isNumber), () => {
   it(
     'should return true for number values only',
     createFilterTests(isNumber, {

@@ -1,8 +1,9 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { allOf } from '../../filters/allOf';
 import { isUndefined } from '../../filters/isUndefined';
 import { repeat } from './index';
 
-describe(`${repeat.name} function`, () => {
+describe(nameOf(repeat), () => {
   it('should throw if times option is incorrect', () => {
     expect(() => {
       const error = repeat(() => null, { times: 42.525 });

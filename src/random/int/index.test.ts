@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { int } from './index';
 
-describe(`${int.name} function`, () => {
+describe(nameOf(int), () => {
   it('should return integer value in specified range inclusive', () => {
     const results: boolean[] = [];
     const min = -10;

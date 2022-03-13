@@ -1,6 +1,7 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { shuffle } from './index';
 
-describe(`${shuffle.name} function`, () => {
+describe(nameOf(shuffle), () => {
   it('should shuffle array', () => {
     const source = ['apple', 'banana', 'carrot'];
     const results: boolean[] = [];

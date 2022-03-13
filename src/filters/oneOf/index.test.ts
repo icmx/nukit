@@ -1,4 +1,5 @@
 import { MOCKS } from '../../../test/constants';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isBoolean } from '../isBoolean';
 import { isNumber } from '../isNumber';
 import { isString } from '../isString';
@@ -7,7 +8,7 @@ import { oneOf } from './index';
 
 const { arrayEmptyMock, arrayFalse42JohnDoeMock } = MOCKS;
 
-describe(`${oneOf} function`, () => {
+describe(nameOf(oneOf), () => {
   it('should throw error if values are not in array', () => {
     expect(() => {
       oneOf(undefined as any, isUndefined);
@@ -34,15 +35,24 @@ describe(`${oneOf} function`, () => {
 
   it('should return true if at least one of values in array meets filter condition (custom filters)', () => {
     expect(
-      oneOf(arrayFalse42JohnDoeMock, (value) => typeof value === 'boolean')
+      oneOf(
+        arrayFalse42JohnDoeMock,
+        (value) => typeof value === 'boolean'
+      )
     ).toBe(true);
 
     expect(
-      oneOf(arrayFalse42JohnDoeMock, (value) => typeof value === 'number')
+      oneOf(
+        arrayFalse42JohnDoeMock,
+        (value) => typeof value === 'number'
+      )
     ).toBe(true);
 
     expect(
-      oneOf(arrayFalse42JohnDoeMock, (value) => typeof value === 'string')
+      oneOf(
+        arrayFalse42JohnDoeMock,
+        (value) => typeof value === 'string'
+      )
     ).toBe(true);
 
     expect(

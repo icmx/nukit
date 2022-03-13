@@ -1,7 +1,8 @@
 import { createFilterTests } from '../../../test/utils/createFilterTests';
+import { nameOf } from '../../../test/utils/nameOf';
 import { isNull } from './index';
 
-describe(`${isNull.name} function`, () => {
+describe(nameOf(isNull), () => {
   it(
     'should return true for null value only',
     createFilterTests(isNull, {

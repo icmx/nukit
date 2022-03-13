@@ -1,10 +1,11 @@
+import { nameOf } from '../../../test/utils/nameOf';
 import { allOf } from '../allOf';
 import { isBoolean } from '../isBoolean';
 import { isNumber } from '../isNumber';
 import { isString } from '../isString';
 import { neither } from './index';
 
-describe(`${neither.name} function`, () => {
+describe(nameOf(neither), () => {
   it('should work as classic boolean and operator', () => {
     const falsePredicate = () => false;
     const truePredicate = () => true;
