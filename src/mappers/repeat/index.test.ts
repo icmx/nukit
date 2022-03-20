@@ -1,17 +1,37 @@
 import { nameOf } from '../../../test/utils/nameOf';
 import { allOf } from '../../filters/allOf';
 import { isUndefined } from '../../filters/isUndefined';
+import {
+  ERROR_TIMES_LT_1,
+  ERROR_TIMES_NOT_SAFE_INT,
+} from './constants';
 import { repeat } from './index';
 
 describe(nameOf(repeat), () => {
-  it('should throw if times option is incorrect', () => {
+  it('should throw if times option is not safe integer', () => {
     expect(() => {
       const error = repeat(() => null, { times: 42.525 });
-    }).toThrow();
+    }).toThrow(ERROR_TIMES_NOT_SAFE_INT);
+
+    expect(() => {
+      const error = repeat(() => null, { times: Infinity });
+    }).toThrow(ERROR_TIMES_NOT_SAFE_INT);
+
+    expect(() => {
+      const error = repeat(() => null, {
+        times: Number.MAX_SAFE_INTEGER + 1,
+      });
+    }).toThrow(ERROR_TIMES_NOT_SAFE_INT);
+  });
+
+  it('should throw if times option is less than 1', () => {
+    expect(() => {
+      const error = repeat(() => null, { times: 0 });
+    }).toThrow(ERROR_TIMES_LT_1);
 
     expect(() => {
       const error = repeat(() => null, { times: -1 });
-    }).toThrow();
+    }).toThrow(ERROR_TIMES_LT_1);
   });
 
   it('should return empty array if callback returns nothing', () => {

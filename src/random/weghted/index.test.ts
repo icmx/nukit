@@ -1,4 +1,5 @@
 import { nameOf } from '../../../test/utils/nameOf';
+import { ERROR_NO_VALID_WEIGHTS, ERROR_VALUES_HAS_NON_ARRAY_ITEM, ERROR_VALUES_HAS_NON_FINITE_WEIGHT, ERROR_VALUES_IS_EMPTY } from './constants';
 import { weighted, WeightedEntry } from './index';
 
 /**
@@ -14,57 +15,57 @@ describe(nameOf(weighted), () => {
   it('should throw error if values array has no values', () => {
     expect(() => {
       const error = weighted([]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_IS_EMPTY);
   });
 
   it('should throw error if values array includes non-weighted value', () => {
     expect(() => {
       // @ts-ignore
-      const error = weighted([['a', 1], ['b']]);
-    });
+      const error = weighted([['a', 1], 'b']);
+    }).toThrow(ERROR_VALUES_HAS_NON_ARRAY_ITEM);
   });
 
   it('should throw error if values array includes entry with invalid weight', () => {
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', NaN]]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', -Infinity]]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', Infinity]]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', undefined]]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', null]]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', 'weight!']]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     expect(() => {
       // @ts-ignore
       const error = weighted([['a', 1], ['b', '42']]);
-    }).toThrow();
+    }).toThrow(ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
   });
 
   it('should throw error if total weight is 0', () => {
     expect(() => {
       const error = weighted([['a', 0], ['b', 0]]);
-    }).toThrow()
+    }).toThrow(ERROR_NO_VALID_WEIGHTS)
   });
 
   it('should correctly do random selection based on wights in straightforward cases', () => {

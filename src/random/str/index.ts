@@ -35,12 +35,6 @@ export const str = (options: StrOptions = {}): string => {
   };
 
   const length = int({ min: minLength, max: maxLength, rng });
-
-  throwOn(
-    length < 0,
-    new TypeError('Length should be more than or equal to 0')
-  );
-
   let result = '';
 
   for (let i = 0; i < length; i++) {

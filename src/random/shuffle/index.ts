@@ -1,6 +1,7 @@
 import { throwOn } from '../../error/throwOn';
 import { isArray } from '../../filters/isArray';
 import { WithRNGOption } from '../../types/WithRNGOption';
+import { ERROR_VALUES_NOT_ARRAY } from './constants';
 
 export type ShuffleOptions = {} & WithRNGOption;
 
@@ -14,10 +15,7 @@ export const shuffle = <T = unknown>(
   values: T[],
   options: ShuffleOptions = {}
 ): T[] => {
-  throwOn(
-    !isArray(values),
-    new TypeError('Iterable for shuffle should be array')
-  );
+  throwOn(!isArray(values), ERROR_VALUES_NOT_ARRAY);
 
   const { rng }: ShuffleOptions = { rng: Math.random, ...options };
 

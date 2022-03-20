@@ -1,6 +1,10 @@
 import { throwOn } from '../../error/throwOn';
 import { neither } from '../../filters/neither';
 import { WithRNGOption } from '../../types/WithRNGOption';
+import {
+  ERROR_MIN_MAX_ARE_NOT_SAFE_INT,
+  ERROR_MIN_GT_MAX,
+} from './constants';
 
 export type IntOptions = {
   /**
@@ -29,15 +33,10 @@ export const int = (options: IntOptions = {}): number => {
 
   throwOn(
     neither(!Number.isSafeInteger(min), !Number.isSafeInteger(max)),
-    new RangeError('Minimum and maximum values should be safe integers')
+    ERROR_MIN_MAX_ARE_NOT_SAFE_INT
   );
 
-  throwOn(
-    min > max,
-    new RangeError(
-      'Minimum value should not be greater than maximum value'
-    )
-  );
+  throwOn(min > max, ERROR_MIN_GT_MAX);
 
   return (
     Math.floor(rng() * (Math.floor(max) - Math.ceil(min) + 1)) +

@@ -2,6 +2,7 @@ import { WORD_CHARS } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { pick } from '../pick';
+import { ERROR_ALPHABET_IS_EMPTY } from './constants';
 
 export type CharOptions = {
   /**
@@ -21,10 +22,7 @@ export const char = (options: CharOptions = {}): string => {
     ...options,
   };
 
-  throwOn(
-    alphabet === '',
-    new TypeError('Alphabet should include at least one character')
-  );
+  throwOn(alphabet === '', ERROR_ALPHABET_IS_EMPTY);
 
   return pick<string>([...alphabet], { rng });
 };

@@ -1,6 +1,7 @@
 import { throwOn } from '../../error/throwOn';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { int } from '../int';
+import { ERROR_VALUES_IS_EMPTY } from './constants';
 
 export type PickOptions = {} & WithRNGOption;
 
@@ -16,10 +17,7 @@ export const pick = <T = unknown>(
     ...options,
   };
 
-  throwOn(
-    !values.length,
-    new TypeError('Array should include at least one item for picking')
-  );
+  throwOn(!values.length, ERROR_VALUES_IS_EMPTY);
 
   return values[int({ min: 0, max: values.length - 1, rng })];
 };

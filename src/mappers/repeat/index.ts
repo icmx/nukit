@@ -1,4 +1,8 @@
 import { throwOn } from '../../error/throwOn';
+import {
+  ERROR_TIMES_LT_1,
+  ERROR_TIMES_NOT_SAFE_INT,
+} from './constants';
 
 export type RepeatOptions = {
   /**
@@ -17,12 +21,9 @@ export const repeat = <T = void>(
 ): T[] => {
   const { times }: RepeatOptions = { times: 1, ...options };
 
-  throwOn(
-    !Number.isSafeInteger(times),
-    new TypeError('times should be safe integer number')
-  );
+  throwOn(!Number.isSafeInteger(times), ERROR_TIMES_NOT_SAFE_INT);
 
-  throwOn(times < 1, new RangeError('times should be greater than 0'));
+  throwOn(times < 1, ERROR_TIMES_LT_1);
 
   let result: T[] = [];
 
