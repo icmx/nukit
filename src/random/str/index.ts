@@ -1,4 +1,5 @@
 import { WORD_CHARS } from '../../constants';
+import { throwOn } from '../../error/throwOn';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { char } from '../char';
 import { int } from '../int';
@@ -35,9 +36,10 @@ export const str = (options: StrOptions = {}): string => {
 
   const length = int({ min: minLength, max: maxLength, rng });
 
-  if (length < 0) {
-    throw new TypeError('Length should be more than or equal to 0');
-  }
+  throwOn(
+    length < 0,
+    new TypeError('Length should be more than or equal to 0')
+  );
 
   let result = '';
 

@@ -1,3 +1,4 @@
+import { throwOn } from '../../error/throwOn';
 import { isArray } from '../isArray';
 import { isNull } from '../isNull';
 import { isObject } from '../isObject';
@@ -27,9 +28,10 @@ export const isEmpty = (
     ...options,
   };
 
-  if (!isArray(emptyValues)) {
-    throw new TypeError('Empty values should be an array');
-  }
+  throwOn(
+    !isArray(emptyValues),
+    new TypeError('Empty values should be an array')
+  );
 
   return (
     isUndefined(value) ||

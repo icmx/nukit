@@ -1,3 +1,5 @@
+import { throwOn } from '../../error/throwOn';
+
 export type RepeatOptions = {
   /**
    * How many times to repeat some action. Once by default.
@@ -15,13 +17,12 @@ export const repeat = <T = void>(
 ): T[] => {
   const { times }: RepeatOptions = { times: 1, ...options };
 
-  if (!Number.isSafeInteger(times)) {
-    throw new TypeError('times should be safe integer number');
-  }
+  throwOn(
+    !Number.isSafeInteger(times),
+    new TypeError('times should be safe integer number')
+  );
 
-  if (times < 1) {
-    throw new RangeError('times should be greater than 0');
-  }
+  throwOn(times < 1, new RangeError('times should be greater than 0'));
 
   let result: T[] = [];
 

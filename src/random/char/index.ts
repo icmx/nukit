@@ -1,4 +1,5 @@
 import { WORD_CHARS } from '../../constants';
+import { throwOn } from '../../error/throwOn';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { pick } from '../pick';
 
@@ -20,11 +21,10 @@ export const char = (options: CharOptions = {}): string => {
     ...options,
   };
 
-  if (alphabet === '') {
-    throw new TypeError(
-      'Alphabet should include at least one character'
-    );
-  }
+  throwOn(
+    alphabet === '',
+    new TypeError('Alphabet should include at least one character')
+  );
 
   return pick<string>([...alphabet], { rng });
 };

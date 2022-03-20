@@ -1,3 +1,4 @@
+import { throwOn } from '../../error/throwOn';
 import { isArray } from '../../filters/isArray';
 import { WithRNGOption } from '../../types/WithRNGOption';
 
@@ -22,11 +23,10 @@ export const weighted = <T = unknown>(
     ...options,
   };
 
-  if (!values.length) {
-    throw new TypeError(
-      'Values array should include at least one item'
-    );
-  }
+  throwOn(
+    !values.length,
+    new TypeError('Values array should include at least one item')
+  );
 
   let sum = 0;
 
@@ -34,24 +34,27 @@ export const weighted = <T = unknown>(
     const value = values[i];
     const weight = value[1];
 
-    if (!isArray(value)) {
-      throw new TypeError(
+    throwOn(
+      !isArray(value),
+      new TypeError(
         'Iterable for weighted pick should have array-like objects'
-      );
-    }
+      )
+    );
 
-    if (!Number.isFinite(weight)) {
-      throw new TypeError('Weight should be finite number');
-    }
+    throwOn(
+      !Number.isFinite(weight),
+      new TypeError('Weight should be finite number')
+    );
 
     if (weight > 0) {
       sum += weight;
     }
   }
 
-  if (sum === 0) {
-    throw new TypeError('No valid weights in array if values');
-  }
+  throwOn(
+    sum === 0,
+    new TypeError('No valid weights in array if values')
+  );
 
   let selected = rng() * sum;
   let total = 0;
