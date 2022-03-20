@@ -7,7 +7,7 @@ describe(nameOf(int), () => {
     const min = -10;
     const max = 10;
 
-    for (let i = 0; i < 1_000_000; i++) {
+    for (let i = 0; i < 10_000; i++) {
       const result = int({ min, max });
       results.push(result >= min && result <= max);
     }

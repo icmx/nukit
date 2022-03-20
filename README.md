@@ -25,8 +25,8 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript — nice types support
-  - Small & Simple — 28 essential functions with 10 shortcuts in about 5 kilobytes of compiled code
-  - Modern — it doesn't rewrites ESNext features that already exists
+  - Small & Simple — 29 (+10) essential functions in about 5 kilobytes of compiled code
+  - Modern — doesn't rewrites ESNext features that already exists
 
 ## Contents
 

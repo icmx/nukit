@@ -1,4 +1,4 @@
-import { resolvePredicate } from 'src/utils/resolvePredicate';
+import { resolvePredicate } from '../utils/resolvePredicate';
 import { Predicate } from '../types/Predicate';
 
 /**
