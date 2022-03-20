@@ -87,4 +87,4 @@ Just like random utilities above, but with seeding support.
 
 ### Error
 
-  - [**throwOn**](src/error/index.ts) — throws an error if predicate returns true
+  - [**throwOn**](src/error/throwOn/index.ts) — throws an error if predicate returns true

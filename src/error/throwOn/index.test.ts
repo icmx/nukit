@@ -1,4 +1,4 @@
-import { nameOf } from '../../test/utils/nameOf';
+import { nameOf } from '../../../test/utils/nameOf';
 import { throwOn } from './index';
 
 describe(nameOf(throwOn), () => {
