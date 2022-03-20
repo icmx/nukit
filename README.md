@@ -84,3 +84,7 @@ Just like random utilities above, but with seeding support.
 ### Timestamps
 
   - [**ts**](src/timestamps/ts/index.ts) — returns a Unix numeric timestamp for current or specified date
+
+### Error
+
+  - [**throwOn**](src/error/index.ts) — throws an error if predicate returns true
