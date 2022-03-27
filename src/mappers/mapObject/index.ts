@@ -3,7 +3,7 @@ import { Entry } from '../../types/Entry';
 
 export type MapObjectOptions = {
   /**
-   * True to enable same mapping over sub-objects (if any).
+   * Enable same mapping over sub-objects (if any).
    */
   recursive?: boolean;
 };
