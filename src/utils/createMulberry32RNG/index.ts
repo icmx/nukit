@@ -1,4 +1,4 @@
-import { RNG } from '../types/RNG';
+import { RNG } from '../../types/RNG';
 
 /**
  * Creates Mulberry32 pseudo-random number generator.

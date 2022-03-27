@@ -1,4 +1,4 @@
-import { Predicate } from '../types/Predicate';
+import { Predicate } from '../../types/Predicate';
 
 export const resolvePredicate = (predicate: Predicate): boolean => {
   if (typeof predicate === 'boolean') {
