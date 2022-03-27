@@ -3,14 +3,14 @@ import { isNull } from '../../filters/isNull';
 import { filterObject } from './index';
 
 describe(nameOf(filterObject), () => {
-  it('should filter object properties', () => {
+  it('should filter object properties (non-recursive case)', () => {
     const exampleSource = {
       a: 'hello',
       b: null,
       c: null,
       d: {
-        f: null,
-        g: 2,
+        a: null,
+        b: 2,
       },
       e: null,
     };
@@ -18,13 +18,48 @@ describe(nameOf(filterObject), () => {
     const exampleResult = {
       a: 'hello',
       d: {
-        f: null,
-        g: 2,
+        a: null,
+        b: 2,
       },
     };
 
     expect(
-      filterObject(exampleSource, (entry) => !isNull(entry[1]))
+      filterObject(exampleSource, ([key, value]) => !isNull(value))
+    ).toEqual(exampleResult);
+  });
+
+  it('should filter object properties (recursive case)', () => {
+    const exampleSource = {
+      a: 'hello',
+      b: null,
+      c: null,
+      d: {
+        a: null,
+        b: 2,
+        c: {
+          a: 'test',
+          b: null,
+        },
+      },
+      e: null,
+      f: 2,
+    };
+
+    const exampleResult = {
+      a: 'hello',
+      d: {
+        b: 2,
+        c: {
+          a: 'test',
+        },
+      },
+      f: 2,
+    };
+
+    expect(
+      filterObject(exampleSource, ([, value]) => !isNull(value), {
+        recursive: true,
+      })
     ).toEqual(exampleResult);
   });
 });
