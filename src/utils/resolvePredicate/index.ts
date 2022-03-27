@@ -1,4 +1,5 @@
 import { Predicate } from '../../types/Predicate';
+import { ERROR_NOT_BOOLEAN } from './constants';
 
 export const resolvePredicate = (predicate: Predicate): boolean => {
   if (typeof predicate === 'boolean') {
@@ -9,7 +10,5 @@ export const resolvePredicate = (predicate: Predicate): boolean => {
     return predicate();
   }
 
-  throw new TypeError(
-    'Predicate should be a boolean or a function that returns a boolean'
-  );
+  throw ERROR_NOT_BOOLEAN;
 };
