@@ -60,6 +60,7 @@ describe(nameOf(mapObject), () => {
         c: {
           a: false,
           b: true,
+          c: 'test',
         },
       },
       e: true,
