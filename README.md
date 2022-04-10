@@ -81,9 +81,9 @@ Just like random utilities above, but with seeding support.
   - [**seedShuffle**](src/seedable/seedShuffle/index.ts) — creates seeded version of shuffle function
   - [**weighted**](src/seedable/seedWeighted/index.ts) — creates seeded version of weighted function
 
-### Timestamps
+### Date
 
-  - [**ts**](src/timestamps/ts/index.ts) — returns a Unix numeric timestamp for current or specified date
+  - [**ts**](src/date/ts/index.ts) — returns a Unix numeric timestamp for current or specified date
 
 ### Error
 
