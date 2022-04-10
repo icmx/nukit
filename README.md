@@ -83,6 +83,7 @@ Just like random utilities above, but with seeding support.
 
 ### Date
 
+  - [**isValid**](src/date/isValid/index.ts) — teturns true if value is valid Date or suits for Date creation.
   - [**ts**](src/date/ts/index.ts) — returns a Unix numeric timestamp for current or specified date
 
 ### Error
