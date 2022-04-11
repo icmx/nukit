@@ -17,6 +17,10 @@ export type AbsoluteBetweenResult = {
   inversed: boolean;
 };
 
+/**
+ * Returns total amount of time between two dates (years, months, days,
+ * hours etc). All units are independent to each other.
+ */
 export const absoluteBetween = (
   from: DateValue,
   to: DateValue
@@ -29,12 +33,12 @@ export const absoluteBetween = (
 
   return {
     milliseconds,
-    years: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM * 12)),
-    months: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM)),
-    days: round(milliseconds / (1000 * 60 * 60 * 24)),
-    hours: round(milliseconds / (1000 * 60 * 60)),
-    minutes: round(milliseconds / (1000 * 60)),
     seconds: round(milliseconds / 1000),
+    minutes: round(milliseconds / (1000 * 60)),
+    hours: round(milliseconds / (1000 * 60 * 60)),
+    days: round(milliseconds / (1000 * 60 * 60 * 24)),
+    months: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM)),
+    years: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM * 12)),
     raw,
     inversed: raw < 0,
   };
