@@ -6,15 +6,13 @@ import { isValid } from '../isValid';
 import { ERROR_INVALID_DATE } from './constants';
 
 export type AbsoluteBetweenResult = {
-  years: number;
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
   milliseconds: number;
-  weeks: number;
-  quarters: number;
+  seconds: number;
+  minutes: number;
+  hours: number;
+  days: number;
+  months: number;
+  years: number;
   raw: number;
   inversed: boolean;
 };
@@ -26,29 +24,18 @@ export const absoluteBetween = (
   throwOn(neither(!isValid(from), !isValid(to)), ERROR_INVALID_DATE);
 
   const raw = new Date(to).valueOf() - new Date(from).valueOf();
-  const inversed = raw < 0;
-
-  const milliseconds = Math.abs(raw);
-  const seconds = Math.round(milliseconds / 1000);
-  const minutes = Math.round(milliseconds / (1000 * 60));
-  const hours = Math.round(milliseconds / (1000 * 60 * 60));
-  const days = Math.round(milliseconds / (1000 * 60 * 60 * 24));
-  const months = Math.round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM));
-  const years = Math.round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM * 12));
-  const weeks = Math.round(days / 7);
-  const quarters = Math.round(months / 3);
+  const { abs, round } = Math;
+  const milliseconds = abs(raw);
 
   return {
-    years,
-    months,
-    days,
-    hours,
-    minutes,
-    seconds,
     milliseconds,
-    weeks,
-    quarters,
+    years: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM * 12)),
+    months: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM)),
+    days: round(milliseconds / (1000 * 60 * 60 * 24)),
+    hours: round(milliseconds / (1000 * 60 * 60)),
+    minutes: round(milliseconds / (1000 * 60)),
+    seconds: round(milliseconds / 1000),
     raw,
-    inversed,
+    inversed: raw < 0,
   };
 };
