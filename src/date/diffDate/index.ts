@@ -5,7 +5,7 @@ import { DateValue } from '../../types/DateValue';
 import { isValidDate } from '../isValidDate';
 import { ERROR_INVALID_DATE } from './constants';
 
-export type DiffDateResult = {
+export type DiffDateResultUnits = {
   milliseconds: number;
   seconds: number;
   minutes: number;
@@ -13,13 +13,18 @@ export type DiffDateResult = {
   days: number;
   months: number;
   years: number;
+};
+
+export type DiffDateResult = {
+  total: DiffDateResultUnits;
+  remain: DiffDateResultUnits;
   raw: number;
   inversed: boolean;
 };
 
 /**
  * Returns total amount of time between two dates (years, months, days,
- * hours etc). All units are independent to each other.
+ * hours etc).
  */
 export const diffDate = (
   from: DateValue,
@@ -31,10 +36,10 @@ export const diffDate = (
   );
 
   const raw = new Date(to).valueOf() - new Date(from).valueOf();
-  const { abs, round } = Math;
+  const { abs, floor, round } = Math;
   const milliseconds = abs(raw);
 
-  return {
+  const total: DiffDateResultUnits = {
     milliseconds,
     seconds: round(milliseconds / 1000),
     minutes: round(milliseconds / (1000 * 60)),
@@ -42,6 +47,21 @@ export const diffDate = (
     days: round(milliseconds / (1000 * 60 * 60 * 24)),
     months: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM)),
     years: round(milliseconds / (1000 * 60 * 60 * 24 * AVG_DIM * 12)),
+  };
+
+  const remain: DiffDateResultUnits = {
+    milliseconds: total.milliseconds % 1000,
+    seconds: total.seconds % 60,
+    minutes: total.minutes % 60,
+    hours: total.hours % 24,
+    days: floor(total.days % AVG_DIM),
+    months: total.months % 12,
+    years: total.years,
+  };
+
+  return {
+    total,
+    remain,
     raw,
     inversed: raw < 0,
   };

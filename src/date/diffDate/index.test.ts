@@ -15,14 +15,27 @@ describe(nameOf(diffDate), () => {
 
     const result = diffDate(from, to);
 
+    console.log(result);
+
     expect(result).toEqual({
-      milliseconds: 63158730000,
-      seconds: 63158730,
-      minutes: 1052646,
-      hours: 17544,
-      days: 731,
-      months: 24,
-      years: 2,
+      total: {
+        milliseconds: 63158730000,
+        seconds: 63158730,
+        minutes: 1052646,
+        hours: 17544,
+        days: 731,
+        months: 24,
+        years: 2,
+      },
+      remain: {
+        milliseconds: 0,
+        seconds: 30,
+        minutes: 6,
+        hours: 0,
+        days: 0,
+        months: 0,
+        years: 2,
+      },
       raw: 63158730000,
       inversed: false,
     });
