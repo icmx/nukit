@@ -15,8 +15,6 @@ describe(nameOf(diffDate), () => {
 
     const result = diffDate(from, to);
 
-    console.log(result);
-
     expect(result).toEqual({
       total: {
         milliseconds: 63158730000,
