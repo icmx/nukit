@@ -1,11 +1,11 @@
 import { nameOf } from '../../../test/utils/nameOf';
 import { ERROR_INVALID_DATE } from './constants';
-import { absoluteBetween } from './index';
+import { diffDate } from './index';
 
-describe(nameOf(absoluteBetween), () => {
+describe(nameOf(diffDate), () => {
   it('should throw an error if input dates are invalid', () => {
     expect(() => {
-      const error = absoluteBetween('not a date', 'not a date too!');
+      const error = diffDate('not a date', 'not a date too!');
     }).toThrow(ERROR_INVALID_DATE);
   });
 
@@ -13,7 +13,7 @@ describe(nameOf(absoluteBetween), () => {
     const from = new Date('2020-01-01T12:30:15');
     const to = new Date('2022-01-01T12:35:45');
 
-    const result = absoluteBetween(from, to);
+    const result = diffDate(from, to);
 
     expect(result).toEqual({
       milliseconds: 63158730000,

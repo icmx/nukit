@@ -1,3 +1,3 @@
-export * from './absoluteBetween';
-export * from './isValid';
+export * from './diffDate';
+export * from './isValidDate';
 export * from './ts';

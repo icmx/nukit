@@ -1,7 +1,7 @@
 import { equally } from '../../filters/equally';
 import { DateValue } from '../../types/DateValue';
 
-export type IsValidOptions = {
+export type IsValidDateOptions = {
   /**
    * Treat falsy values (0 and '') as valid. They return zero date
    * which is 1970-01-01T00:00:00.000.
@@ -12,11 +12,11 @@ export type IsValidOptions = {
 /**
  * Returns true if value is valid Date or suits for Date creation.
  */
-export const isValid = (
+export const isValidDate = (
   value: DateValue,
-  options: IsValidOptions = {}
+  options: IsValidDateOptions = {}
 ): value is DateValue => {
-  const { allowFalsy }: IsValidOptions = {
+  const { allowFalsy }: IsValidDateOptions = {
     allowFalsy: false,
     ...options,
   };

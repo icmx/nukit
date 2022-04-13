@@ -2,10 +2,10 @@ import { AVG_DIM } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { neither } from '../../filters/neither';
 import { DateValue } from '../../types/DateValue';
-import { isValid } from '../isValid';
+import { isValidDate } from '../isValidDate';
 import { ERROR_INVALID_DATE } from './constants';
 
-export type AbsoluteBetweenResult = {
+export type DiffDateResult = {
   milliseconds: number;
   seconds: number;
   minutes: number;
@@ -21,11 +21,14 @@ export type AbsoluteBetweenResult = {
  * Returns total amount of time between two dates (years, months, days,
  * hours etc). All units are independent to each other.
  */
-export const absoluteBetween = (
+export const diffDate = (
   from: DateValue,
   to: DateValue
-): AbsoluteBetweenResult => {
-  throwOn(neither(!isValid(from), !isValid(to)), ERROR_INVALID_DATE);
+): DiffDateResult => {
+  throwOn(
+    neither(!isValidDate(from), !isValidDate(to)),
+    ERROR_INVALID_DATE
+  );
 
   const raw = new Date(to).valueOf() - new Date(from).valueOf();
   const { abs, round } = Math;
