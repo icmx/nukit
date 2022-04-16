@@ -8,8 +8,14 @@
   },
   "keywords": [
     "collection",
+    "date",
+    "error",
+    "filtering",
     "helpers",
+    "mapping",
     "random",
+    "regexp",
+    "seedable",
     "small",
     "utils"
   ],
