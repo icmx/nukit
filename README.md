@@ -25,7 +25,7 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript: nice types support
-  - Small & Simple: 29 (+10) essential functions in about 5 kilobytes of compiled code
+  - Small & Simple: 32 (+10) essential functions in about 5 kilobytes of compiled code
   - Modern: doesn't rewrites ESNext features that already exists
 
 ## Contents
@@ -90,6 +90,10 @@ Just like random utilities above, but with seeding support.
 ### Error
 
   - [**throwOn**](src/error/throwOn/index.ts) — throws an error if predicate returns true
+
+### RegExp
+
+  - [**re**](src/regexp/re/index.ts) — builds a RegExp from a template string.
 
 ## Development
 
