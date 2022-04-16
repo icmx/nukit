@@ -2,9 +2,13 @@
  * Builds a RegExp from a template string.
  *
  * @example
- * const example = re`.+`; // equal to new RegExp('.+');
+ * // === new RegExp('.+');
+ * const example = re`.+`;
  */
-export const re = (strings: string[], ...keys: string[]): RegExp => {
+export const re = (
+  strings: TemplateStringsArray,
+  ...keys: any[]
+): RegExp => {
   const pattern = keys
     .map((value, index) => strings[index] + value)
     .join('')
