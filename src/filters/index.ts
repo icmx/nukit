@@ -13,3 +13,4 @@ export * from './isUndefined';
 export * from './neither';
 export * from './oneOf';
 export * from './or';
+export * from './unique';
