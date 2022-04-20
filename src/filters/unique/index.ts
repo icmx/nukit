@@ -1,3 +1,7 @@
+import { throwOn } from '../../error/throwOn';
+import { isArray } from '../isArray';
+import { ERROR_NOT_ARRAY } from './constants';
+
 /**
  * Returns an array without duplicates, a predicate version. Useful for
  * array chaining.
@@ -22,5 +26,7 @@ export const uniquePredicate = <T = unknown>(
  * Returns an array without duplicates.
  */
 export const uniqie = <T = unknown>(value: T[]): T[] => {
+  throwOn(!isArray(value), ERROR_NOT_ARRAY);
+
   return Array.from(new Set<T>(value));
 };
