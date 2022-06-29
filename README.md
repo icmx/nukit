@@ -25,7 +25,7 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript: nice types support
-  - Small & Simple: 32 (+10) essential functions in about 5 kilobytes of compiled code
+  - Small & Simple: 33 (+10) essential functions in about 5 kilobytes of compiled code
   - Modern: doesn't rewrites ESNext features that already exists
 
 ## Contents
@@ -47,6 +47,8 @@ const value = pick(['apple', 'banana', 'carrot']);
     - [**and**](src/filters/and/index.ts) — alias
   - [**neither**](src/filters/neither/index.ts) — returns true if at least one of predicates is true
     - [**or**](src/filters/or/index.ts) — alias
+  - [**unique**](src/filters/unique/index.ts) — returns an array without duplicates
+    - See also: **uniquePredicate**, a predicate version for array chaining.
 
 ### Mappers
 
@@ -94,7 +96,7 @@ Just like random utilities above, but with seeding support.
 
 ### RegExp
 
-  - [**re**](src/regexp/re/index.ts) — builds a RegExp from a template string.
+  - [**re**](src/regexp/re/index.ts) — builds a RegExp from a template string
 
 ## Development
 
