@@ -1,3 +1,4 @@
+export * from './byKeys';
 export * from './filterObject';
 export * from './mapObject';
 export * from './repeat';

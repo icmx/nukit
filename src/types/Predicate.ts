@@ -1,1 +1,1 @@
-export type Predicate = boolean | ((args?: never) => boolean);
+export type Predicate = boolean | (() => boolean);
