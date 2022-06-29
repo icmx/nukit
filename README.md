@@ -56,6 +56,7 @@ const value = pick(['apple', 'banana', 'carrot']);
   - [**filterObject**](src/mappers/filterObject/index.ts) — filters object entries by predicate like standard array's filter
   - [**mapObject**](src/mappers/mapObject/index.ts) — maps object entries by callback function like standard array's map
   - [**repeat**](src/mappers/repeat/index.ts) — repeats some action for a specified number of times
+  - [**byKeys**](src/mappers/byKeys/index.ts) — creates a comparator function for standard array's sort method to sort elements by keys provided in a custom order.
 
 ### Random
 

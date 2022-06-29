@@ -1,24 +1,16 @@
-import { isNumber } from '../../filters/isNumber';
-import { isString } from '../../filters/isString';
-import { neither } from '../../filters/neither';
+import { getKeyFallback } from './utils';
 
-export const getKeyFallback = <T = any>(value: T): number | string => {
-  if (neither(isNumber(value), isString(value))) {
-    return (value as unknown) as number | string;
-  } else {
-    throw new TypeError(
-      `getKey function is required for byKeys objects sorting`
-    );
-  }
-};
-
-export const byKeys = <T = unknown>(
-  order: number[] | string[],
-  getKey: (value: T) => number | string = getKeyFallback
+/**
+ * Creates a comparator function for standard array's sort method to
+ * sort elements by keys provided in a custom order.
+ */
+export const byKeys = <I = unknown, K = number | string>(
+  order: K[],
+  getKey: (value: I) => K = getKeyFallback
 ) => {
   const indexes = new Map(order.map((value, index) => [value, index]));
 
-  return (previous: T, next: T): number => {
+  return (previous: I, next: I): number => {
     return indexes.get(getKey(previous))! - indexes.get(getKey(next))!;
   };
 };
