@@ -19,16 +19,15 @@ export const shuffle = <T = unknown>(
 
   const { rng }: ShuffleOptions = { rng: Math.random, ...options };
 
-  const result: T[] = [];
+  const result = [...values];
+  let x: T;
 
-  let ci = values.length;
-  let ri: number;
+  for (let i = values.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
 
-  while (ci !== 0) {
-    ri = Math.floor(rng() * ci);
-    ci--;
-
-    [result[ci], result[ri]] = [values[ri], values[ci]];
+    x = result[i];
+    result[i] = result[j];
+    result[j] = x;
   }
 
   return result;
