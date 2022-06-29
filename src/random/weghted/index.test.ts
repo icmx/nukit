@@ -89,7 +89,7 @@ describe(nameOf(weighted), () => {
     const values = entries.map((entry) => entry[0]);
     const weights = entries.map((entry) => entry[1]);
 
-    const counter = [];
+    const counter: number[] = [];
 
     for (let i = 0; i < attempts; i += 1) {
       const value = weighted(entries);
