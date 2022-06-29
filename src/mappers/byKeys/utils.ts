@@ -1,5 +1,5 @@
-import { throwOn } from 'src/error';
-import { equally } from 'src/filters';
+import { throwOn } from '../../error/throwOn';
+import { equally } from '../../filters/equally';
 import { isNumber } from '../../filters/isNumber';
 import { isString } from '../../filters/isString';
 
