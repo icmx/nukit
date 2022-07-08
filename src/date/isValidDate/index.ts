@@ -25,14 +25,10 @@ export const isValidDate = (
     return allowFalsy ? true : false;
   }
 
-  try {
-    const target = new Date(value);
+  const target = new Date(value);
 
-    return equally(
-      target instanceof Date,
-      !Number.isNaN(target.valueOf())
-    );
-  } catch {
-    return false;
-  }
+  return equally(
+    target instanceof Date,
+    !Number.isNaN(target.valueOf())
+  );
 };
