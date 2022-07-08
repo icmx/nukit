@@ -34,6 +34,12 @@ describe(nameOf(repeat), () => {
     }).toThrow(ERROR_TIMES_LT_1);
   });
 
+  it('should works correctly on default options', () => {
+    const results = repeat(() => 'a');
+
+    expect(results.join('')).toBe('a');
+  });
+
   it('should return empty array if callback returns nothing', () => {
     const times = 100;
 
