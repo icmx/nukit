@@ -36,7 +36,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "files": [
     "dist"
