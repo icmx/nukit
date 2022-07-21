@@ -25,7 +25,7 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript: nice types support
-  - Small & Simple: 33 (+10) essential functions in about 5 kilobytes of compiled code
+  - Small & Simple: 36 essential functions in about 5 kilobytes of compiled code
   - Modern: doesn't rewrites ESNext features that already exists
 
 ## Contents
@@ -88,7 +88,7 @@ Just like random utilities above, but with seeding support.
 
   - [**ts**](src/date/ts/index.ts) — returns a Unix numeric timestamp for current or specified date
   - [**isValidDate**](src/date/isValidDate/index.ts) — returns true if value is valid Date or suits for Date creation
-  - [**diffDate**](src/date/diffDate/index.ts) — returns total amount of time between two dates (years, months, days, hours etc).
+  - [**diffDate**](src/date/diffDate/index.ts) — returns total amount of time between two dates (years, months, days, hours etc)
 
 ### Error
 
@@ -96,7 +96,7 @@ Just like random utilities above, but with seeding support.
 
 ### RegExp
 
-  - [**re**](src/regexp/re/index.ts) — builds a RegExp from a template string
+  - [**r**](src/regexp/r/index.ts) — creates a RegExp from a template string, `gu` flags are enabled
 
 ## Development
 

@@ -1,11 +1,11 @@
 /**
- * Builds a RegExp from a template string.
+ * Creates a RegExp from a template string, `gu` flags are enabled.
  *
  * @example
- * // === new RegExp('.+');
- * const example = re`.+`;
+ * // this is equal to new RegExp(/.+/, 'gu');
+ * const example = r`.+`;
  */
-export const re = (
+export const r = (
   strings: TemplateStringsArray,
   ...keys: any[]
 ): RegExp => {
@@ -14,5 +14,5 @@ export const re = (
     .join('')
     .concat(strings[strings.length - 1]);
 
-  return new RegExp(pattern);
+  return new RegExp(pattern, 'gu');
 };
