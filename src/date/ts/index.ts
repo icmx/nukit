@@ -7,13 +7,11 @@ export type TsOptions = {
   from?: Date;
 
   /**
-   * Option to handle milliseconds in timestamp.
+   * How to handle milliseconds part in a timetamp.
    *
-   * *Note: `'ceil'`, `'floor'`, `'round'` and `'trunc'` are internally
-   * uses appropriate `Math` methods.
-   *
-   * Math reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-   * @default undefined
+   * - `ceil`, `floor`, `round` and `trunc` are standard Math handlers
+   * - `keep` is default option to just keep milliseconds
+   * @default 'keep'
    */
   milliseconds?: FloatHandling;
 };
@@ -23,11 +21,11 @@ export type TsOptions = {
  */
 export const ts = ({
   from = new Date(),
-  milliseconds = undefined,
+  milliseconds = 'keep',
 }: TsOptions = {}) => {
-  if (milliseconds) {
-    return Math[milliseconds](from.getTime() / 1000);
-  } else {
+  if (milliseconds === 'keep') {
     return from.getTime();
+  } else {
+    return Math[milliseconds](from.getTime() / 1000);
   }
 };

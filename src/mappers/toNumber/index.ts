@@ -4,24 +4,12 @@ import { FloatHandling } from '../../types/FloatHandling';
 
 export type ToNumberOptions = {
   /**
-   * Method to handle decimal part of value, if any.
+   * How to handle decimal part in a value, if any.
    *
-   *   - `'fallback'` - will activate fallback set in `onFallback`
-   *     or default fallback
-   *   - `'ceil'` - rounds a number up to the next largest integer
-   *   - `'floor'` - returns the largest integer less than or equal to
-   *     a given number
-   *   - `'round'` - returns the value of a number rounded to the
-   *     nearest integer
-   *   - `'trunc'` - returns the integer part of a number by removing
-   *     any fractional digits
-   *   - If unset, will keep the decimal part.
-   *
-   * Note: `'ceil'`, `'floor'`, `'round'` and `'trunc'` are internally
-   * uses appropriate `Math` methods.
-   *
-   * Math reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-   * @default undefined
+   * - `ceil`, `floor`, `round` and `trunc` are standard Math handlers
+   * - `fallback` will use fallback on parsed value if it's not integer
+   * - `keep` is default option to just keep decimal part
+   * @default 'keep'
    */
   floats?: 'fallback' | FloatHandling;
 
@@ -38,10 +26,7 @@ export type ToNumberOptions = {
  */
 export const toNumber = (
   value: unknown,
-  {
-    floats = undefined,
-    onFallback = OF_UNDEFINED,
-  }: ToNumberOptions = {}
+  { floats = 'keep', onFallback = OF_UNDEFINED }: ToNumberOptions = {}
 ): number => {
   const parseResult = Number.parseFloat(value as any);
   const plusResult = +(value as any);
@@ -50,11 +35,11 @@ export const toNumber = (
     return onFallback(value);
   }
 
-  if (floats) {
+  if (floats === 'keep' || Number.isInteger(parseResult)) {
+    return parseResult;
+  } else {
     return floats === 'fallback'
       ? onFallback(parseResult)
       : Math[floats](parseResult);
   }
-
-  return parseResult;
 };

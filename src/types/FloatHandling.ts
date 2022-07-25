@@ -1,4 +1,3 @@
-export type FloatHandling = keyof Pick<
-  Math,
-  'ceil' | 'floor' | 'round' | 'trunc'
->;
+export type FloatHandling =
+  | 'keep'
+  | keyof Pick<Math, 'ceil' | 'floor' | 'round' | 'trunc'>;
