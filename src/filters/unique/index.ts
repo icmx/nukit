@@ -11,10 +11,10 @@ import { ERROR_NOT_ARRAY } from './constants';
  * @example
  * array
  *  .map(i => i + 1)
- *  .filter(uniquePredicate) // <- here it is
+ *  .filter(byUnique) // <- here it is
  *  .join(':')
  */
-export const uniquePredicate = <T = unknown>(
+export const byUnique = <T = unknown>(
   value: T,
   index: number,
   array: T[]

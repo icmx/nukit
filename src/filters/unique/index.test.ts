@@ -1,6 +1,6 @@
 import { nameOf } from '../../../test/utils/nameOf';
 import { ERROR_NOT_ARRAY } from './constants';
-import { uniqie, uniquePredicate } from './index';
+import { uniqie, byUnique } from './index';
 
 const samples = [
   [
@@ -41,14 +41,14 @@ describe(nameOf(uniqie), () => {
   });
 });
 
-describe(nameOf(uniquePredicate), () => {
+describe(nameOf(byUnique), () => {
   it('should return empty array if value is empty array', () => {
-    expect([].filter(uniquePredicate)).toEqual([]);
+    expect([].filter(byUnique)).toEqual([]);
   });
 
   it('should return array without duplicates', () => {
     samples.forEach(([source, result]) => {
-      expect((source as any[]).filter(uniquePredicate)).toEqual(result);
+      expect((source as any[]).filter(byUnique)).toEqual(result);
     });
   });
 });
