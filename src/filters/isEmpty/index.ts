@@ -25,7 +25,7 @@ export const isEmpty = (
   value: unknown,
   { emptyValues = [NaN, ''] }: IsEmptyOptions = {}
 ): boolean => {
-  when(!isArray(emptyValues), ERROR_EMPTY_VALUES_NOT_ARRAY);
+  when(!isArray(emptyValues)).drop(ERROR_EMPTY_VALUES_NOT_ARRAY);
 
   return neither(
     isUndefined(value),

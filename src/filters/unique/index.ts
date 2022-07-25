@@ -26,7 +26,7 @@ export const byUnique = <T = unknown>(
  * Returns an array without duplicates.
  */
 export const uniqie = <T = unknown>(value: T[]): T[] => {
-  when(!isArray(value), ERROR_NOT_ARRAY);
+  when(!isArray(value)).drop(ERROR_NOT_ARRAY);
 
   return Array.from(new Set<T>(value));
 };

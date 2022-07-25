@@ -25,7 +25,7 @@ export const weighted = <T = unknown>(
   values: WeightedEntry<T>[],
   { rng = RNG }: WeightedOptions = {}
 ): T => {
-  when(!values.length, ERROR_VALUES_IS_EMPTY);
+  when(!values.length).drop(ERROR_VALUES_IS_EMPTY);
 
   let sum = 0;
 
@@ -33,15 +33,18 @@ export const weighted = <T = unknown>(
     const value = values[i];
     const weight = value[1];
 
-    when(!isArray(value), ERROR_VALUES_HAS_NON_ARRAY_ITEM);
-    when(!Number.isFinite(weight), ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
+    when(!isArray(value)).drop(ERROR_VALUES_HAS_NON_ARRAY_ITEM);
+
+    when(!Number.isFinite(weight)).drop(
+      ERROR_VALUES_HAS_NON_FINITE_WEIGHT
+    );
 
     if (weight > 0) {
       sum += weight;
     }
   }
 
-  when(sum === 0, ERROR_NO_VALID_WEIGHTS);
+  when(sum === 0).drop(ERROR_NO_VALID_WEIGHTS);
 
   let selected = rng() * sum;
   let total = 0;

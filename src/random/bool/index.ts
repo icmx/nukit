@@ -20,8 +20,7 @@ export const bool = ({
   chance = 0.5,
   rng = RNG,
 }: BoolOptions = {}): boolean => {
-  when(
-    neither(chance < 0, chance > 1, !Number.isFinite(chance)),
+  when(neither(chance < 0, chance > 1, !Number.isFinite(chance))).drop(
     ERROR_CHANCE_NOT_FLOAT_BETWEEN_0_1
   );
 

@@ -13,7 +13,7 @@ export const pick = <T = unknown>(
   values: T[],
   { rng = RNG }: PickOptions = {}
 ): T => {
-  when(!values.length, ERROR_VALUES_IS_EMPTY);
+  when(!values.length).drop(ERROR_VALUES_IS_EMPTY);
 
   return values[int({ min: 0, max: values.length - 1, rng })];
 };

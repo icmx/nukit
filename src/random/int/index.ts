@@ -30,10 +30,10 @@ export const int = ({
   rng = RNG,
 }: IntOptions = {}): number => {
   when(
-    neither(!Number.isSafeInteger(min), !Number.isSafeInteger(max)),
-    ERROR_MIN_MAX_ARE_NOT_SAFE_INT
-  );
-  when(min > max, ERROR_MIN_GT_MAX);
+    neither(!Number.isSafeInteger(min), !Number.isSafeInteger(max))
+  ).drop(ERROR_MIN_MAX_ARE_NOT_SAFE_INT);
+
+  when(min > max).drop(ERROR_MIN_GT_MAX);
 
   return (
     Math.floor(rng() * (Math.floor(max) - Math.ceil(min) + 1)) +

@@ -30,8 +30,7 @@ export const diffDate = (
   from: DateValue,
   to: DateValue
 ): DiffDateResult => {
-  when(
-    neither(!isValidDate(from), !isValidDate(to)),
+  when(neither(!isValidDate(from), !isValidDate(to))).drop(
     ERROR_INVALID_DATE
   );
 

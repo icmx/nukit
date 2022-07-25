@@ -19,7 +19,7 @@ export const char = ({
   alphabet = WORD_CHARS,
   rng = RNG,
 }: CharOptions = {}): string => {
-  when(alphabet === '', ERROR_ALPHABET_IS_EMPTY);
+  when(alphabet === '').drop(ERROR_ALPHABET_IS_EMPTY);
 
   return pick<string>([...alphabet], { rng });
 };

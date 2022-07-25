@@ -16,7 +16,7 @@ export const shuffle = <T = unknown>(
   values: T[],
   { rng = RNG }: ShuffleOptions = {}
 ): T[] => {
-  when(!isArray(values), ERROR_VALUES_NOT_ARRAY);
+  when(!isArray(values)).drop(ERROR_VALUES_NOT_ARRAY);
 
   const result = [...values];
   let x: T;

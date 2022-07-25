@@ -1,4 +1,5 @@
 import { nameOf } from '../../../test/utils/nameOf';
+import { ERROR } from './constants';
 import { when } from './index';
 
 describe(nameOf(when), () => {
@@ -7,31 +8,31 @@ describe(nameOf(when), () => {
 
   it('should not throw an error if predicate returns false', () => {
     expect(() => {
-      when(false);
+      when(false).drop();
     }).not.toThrow();
 
     expect(() => {
       // @ts-ignore
-      when(0 === 1);
+      when(0 === 1).drop();
     }).not.toThrow();
 
     expect(() => {
       // @ts-ignore
-      when(ofFalse());
+      when(ofFalse()).drop();
     }).not.toThrow();
   });
 
   it('should throw an error if predicate returns true', () => {
     expect(() => {
-      when(true);
-    }).toThrow();
+      when(true).drop();
+    }).toThrow(ERROR);
 
     expect(() => {
-      when(ofTrue());
-    }).toThrow();
+      when(ofTrue()).drop();
+    }).toThrow(ERROR);
 
     expect(() => {
-      when(0 === 0);
-    }).toThrow();
+      when(0 === 0).drop();
+    }).toThrow(ERROR);
   });
 });
