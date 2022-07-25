@@ -14,18 +14,13 @@ export type MapObjectOptions = {
 export const mapObject = (
   source: object,
   action: (entry: Entry, index?: number, array?: Entry[]) => any,
-  options: MapObjectOptions = {}
+  { recursive = false }: MapObjectOptions = {}
 ): object => {
-  const { recursive }: MapObjectOptions = {
-    recursive: false,
-    ...options,
-  };
-
   return recursive
     ? Object.fromEntries(
         Object.entries(source).map(([key, value], index?, array?) =>
           isObject(value)
-            ? [key, mapObject(value, action, options)]
+            ? [key, mapObject(value, action, { recursive })]
             : action([key, value], index, array)
         )
       )

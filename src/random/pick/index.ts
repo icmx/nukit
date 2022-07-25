@@ -1,3 +1,4 @@
+import { RNG } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { int } from '../int';
@@ -10,13 +11,8 @@ export type PickOptions = {} & WithRNGOption;
  */
 export const pick = <T = unknown>(
   values: T[],
-  options: PickOptions = {}
+  { rng = RNG }: PickOptions = {}
 ): T => {
-  const { rng }: PickOptions = {
-    rng: Math.random,
-    ...options,
-  };
-
   throwOn(!values.length, ERROR_VALUES_IS_EMPTY);
 
   return values[int({ min: 0, max: values.length - 1, rng })];

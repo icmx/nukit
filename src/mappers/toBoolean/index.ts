@@ -1,7 +1,6 @@
-import { TO_BOOLEAN_DEFAULTS } from '../../constants';
+import { OF_UNDEFINED } from '../../constants';
 import { isBoolean } from '../../filters/isBoolean';
 import { FallbackHandler } from '../../types/FallbackHAndler';
-import { createErrorFallback } from '../../utils/createErrorFallback';
 
 export type ToBooleanOptions = {
   /**
@@ -29,21 +28,15 @@ export type ToBooleanOptions = {
  */
 export const toBoolean = (
   value: unknown,
-  options: ToBooleanOptions = {}
+  {
+    falseValues = ['false'],
+    trueValues = ['true'],
+    onFallback = OF_UNDEFINED,
+  }: ToBooleanOptions = {}
 ): boolean => {
   if (isBoolean(value)) {
     return value;
   }
-
-  const { falseValues, trueValues, onFallback }: ToBooleanOptions = {
-    falseValues: [],
-    trueValues: [],
-    onFallback: createErrorFallback(
-      new TypeError(`Unable to map ${value} into boolean`)
-    ),
-    ...TO_BOOLEAN_DEFAULTS,
-    ...options,
-  };
 
   if (falseValues.length && falseValues.includes(value)) {
     return false;

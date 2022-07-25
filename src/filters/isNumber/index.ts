@@ -17,17 +17,13 @@ export type IsNumberOptions = {
  */
 export const isNumber = (
   value: unknown,
-  options: IsNumberOptions = {}
+  { allowInfinity = false, allowNaN = false }: IsNumberOptions = {}
 ): value is number => {
-  const { allowInfinity, allowNaN }: IsNumberOptions = {
-    allowInfinity: false,
-    allowNaN: false,
-    ...options,
-  };
-
   return (
     typeof value === 'number' &&
-    (allowInfinity ? true : value !== -Infinity && value !== Infinity) &&
+    (allowInfinity
+      ? true
+      : value !== -Infinity && value !== Infinity) &&
     (allowNaN ? true : !Number.isNaN(value))
   );
 };

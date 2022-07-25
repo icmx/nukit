@@ -1,5 +1,4 @@
-import { WORD_CHARS } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { RNG, WORD_CHARS } from '../../constants';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { char } from '../char';
 import { int } from '../int';
@@ -25,15 +24,12 @@ export type StrOptions = {
 /**
  * Returns random string value.
  */
-export const str = (options: StrOptions = {}): string => {
-  const { alphabet, minLength, maxLength, rng }: StrOptions = {
-    alphabet: WORD_CHARS,
-    minLength: 0,
-    maxLength: 1,
-    rng: Math.random,
-    ...options,
-  };
-
+export const str = ({
+  alphabet = WORD_CHARS,
+  minLength = 0,
+  maxLength = 1,
+  rng = RNG,
+}: StrOptions = {}): string => {
   const length = int({ min: minLength, max: maxLength, rng });
   let result = '';
 

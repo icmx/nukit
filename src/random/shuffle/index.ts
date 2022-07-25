@@ -1,3 +1,4 @@
+import { RNG } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { isArray } from '../../filters/isArray';
 import { WithRNGOption } from '../../types/WithRNGOption';
@@ -13,11 +14,9 @@ export type ShuffleOptions = {} & WithRNGOption;
  */
 export const shuffle = <T = unknown>(
   values: T[],
-  options: ShuffleOptions = {}
+  { rng = RNG }: ShuffleOptions = {}
 ): T[] => {
   throwOn(!isArray(values), ERROR_VALUES_NOT_ARRAY);
-
-  const { rng }: ShuffleOptions = { rng: Math.random, ...options };
 
   const result = [...values];
   let x: T;

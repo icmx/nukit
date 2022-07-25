@@ -19,16 +19,14 @@ describe(nameOf(toNumber), () => {
   });
 
   it('should threat float handlers appropriately', () => {
-    expect(toNumber('42.525', { floatHandler: 'ceil' })).toBe(43);
-    expect(toNumber('42.525', { floatHandler: 'floor' })).toBe(42);
-    expect(toNumber('42.525', { floatHandler: 'round' })).toBe(43);
-    expect(toNumber('42.525', { floatHandler: 'trunc' })).toBe(42);
+    expect(toNumber('42.525', { floats: 'ceil' })).toBe(43);
+    expect(toNumber('42.525', { floats: 'floor' })).toBe(42);
+    expect(toNumber('42.525', { floats: 'round' })).toBe(43);
+    expect(toNumber('42.525', { floats: 'trunc' })).toBe(42);
   });
 
   it('should return undefined by fallback when float value parsed', () => {
-    expect(toNumber('42.525', { floatHandler: 'fallback' })).toBe(
-      undefined
-    );
+    expect(toNumber('42.525', { floats: 'fallback' })).toBe(undefined);
   });
 
   it('should handle custom fallback correctly', () => {

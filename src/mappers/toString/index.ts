@@ -1,4 +1,3 @@
-import { TO_STRING_DEFAULTS } from '../../constants';
 import { isString } from '../../filters/isString';
 
 export type ToStringOptions = {
@@ -20,15 +19,13 @@ export type ToStringOptions = {
  */
 export const toString = (
   value: unknown,
-  options: ToStringOptions = TO_STRING_DEFAULTS
+  { handlerArgs = [], useToJSON = false }: ToStringOptions = {}
 ): string => {
   if (isString(value)) {
     return value;
   }
 
-  const handlerArgs = options.handlerArgs || [];
-
-  if (options.useToJSON) {
+  if (useToJSON) {
     return JSON.stringify(value, ...handlerArgs);
   }
 

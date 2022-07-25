@@ -16,15 +16,6 @@ describe(nameOf(toBoolean), () => {
     expect(toBoolean(0)).toBe(undefined);
   });
 
-  it('should throw error if fallback option is unset', () => {
-    const customToBoolean = (value: unknown): value is boolean =>
-      toBoolean(value, { onFallback: undefined });
-
-    expect(() => {
-      customToBoolean(0);
-    }).toThrow();
-  });
-
   it('should return exact value as specified in fallback if set', () => {
     const customToBoolean = (value: unknown): value is boolean =>
       toBoolean(value, { onFallback: (value) => `Unknown: ${value}` });

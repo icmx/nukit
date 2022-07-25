@@ -1,6 +1,6 @@
-import { TO_NUMBER_DEFAULTS } from '../../constants';
+import { OF_UNDEFINED } from '../../constants';
 import { FallbackHandler } from '../../types/FallbackHandler';
-import { createErrorFallback } from '../../utils/createErrorFallback';
+import { FloatHandling } from '../../types/FloatHandling';
 
 export type ToNumberOptions = {
   /**
@@ -23,9 +23,7 @@ export type ToNumberOptions = {
    * Math reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
    * @default undefined
    */
-  floatHandler?:
-    | 'fallback'
-    | keyof Pick<Math, 'ceil' | 'floor' | 'round' | 'trunc'>;
+  floats?: 'fallback' | FloatHandling;
 
   /**
    * Action to perform when value can't be mapped into a number.
@@ -40,27 +38,22 @@ export type ToNumberOptions = {
  */
 export const toNumber = (
   value: unknown,
-  options: ToNumberOptions = {}
+  {
+    floats = undefined,
+    onFallback = OF_UNDEFINED,
+  }: ToNumberOptions = {}
 ): number => {
   const parseResult = Number.parseFloat(value as any);
   const plusResult = +(value as any);
-
-  const { onFallback, floatHandler }: ToNumberOptions = {
-    onFallback: createErrorFallback(
-      new TypeError(`Unable to map ${value} into number`)
-    ),
-    ...TO_NUMBER_DEFAULTS,
-    ...options,
-  };
 
   if (parseResult !== plusResult) {
     return onFallback(value);
   }
 
-  if (floatHandler) {
-    return floatHandler === 'fallback'
+  if (floats) {
+    return floats === 'fallback'
       ? onFallback(parseResult)
-      : Math[floatHandler](parseResult);
+      : Math[floats](parseResult);
   }
 
   return parseResult;

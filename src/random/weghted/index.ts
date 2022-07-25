@@ -1,3 +1,4 @@
+import { RNG } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { isArray } from '../../filters/isArray';
 import { WithRNGOption } from '../../types/WithRNGOption';
@@ -22,13 +23,8 @@ export type WeightedEntry<T = unknown> = [T, number];
  */
 export const weighted = <T = unknown>(
   values: WeightedEntry<T>[],
-  options: WeightedOptions = {}
+  { rng = RNG }: WeightedOptions = {}
 ): T => {
-  const { rng }: WeightedOptions = {
-    rng: Math.random,
-    ...options,
-  };
-
   throwOn(!values.length, ERROR_VALUES_IS_EMPTY);
 
   let sum = 0;
@@ -38,7 +34,6 @@ export const weighted = <T = unknown>(
     const weight = value[1];
 
     throwOn(!isArray(value), ERROR_VALUES_HAS_NON_ARRAY_ITEM);
-
     throwOn(
       !Number.isFinite(weight),
       ERROR_VALUES_HAS_NON_FINITE_WEIGHT

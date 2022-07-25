@@ -17,12 +17,9 @@ export type RepeatOptions = {
  */
 export const repeat = <T = void>(
   action: (step: number) => T,
-  options: RepeatOptions = {}
+  { times = 1 }: RepeatOptions = {}
 ): T[] => {
-  const { times }: RepeatOptions = { times: 1, ...options };
-
   throwOn(!Number.isSafeInteger(times), ERROR_TIMES_NOT_SAFE_INT);
-
   throwOn(times < 1, ERROR_TIMES_LT_1);
 
   let result: T[] = [];

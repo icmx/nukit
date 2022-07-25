@@ -14,13 +14,8 @@ export type FilterObjectOptions = {
 export const filterObject = (
   source: object,
   filter: (entry: Entry, index?: number, array?: Entry[]) => any,
-  options: FilterObjectOptions = {}
+  { recursive = false }: FilterObjectOptions = {}
 ): object => {
-  const { recursive }: FilterObjectOptions = {
-    recursive: false,
-    ...options,
-  };
-
   return recursive
     ? Object.fromEntries(
         Object.entries(source)
@@ -28,7 +23,7 @@ export const filterObject = (
           .map(([key, value]) => [
             key,
             isObject(value)
-              ? filterObject(value, filter, options)
+              ? filterObject(value, filter, { recursive })
               : value,
           ])
       )

@@ -1,3 +1,4 @@
+import { RNG } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { neither } from '../../filters/neither';
 import { WithRNGOption } from '../../types/WithRNGOption';
@@ -15,13 +16,10 @@ export type BoolOptions = {
 /**
  * Returns random boolean value, false or true.
  */
-export const bool = (options: BoolOptions = {}): boolean => {
-  const { chance, rng }: BoolOptions = {
-    chance: 0.5,
-    rng: Math.random,
-    ...options,
-  };
-
+export const bool = ({
+  chance = 0.5,
+  rng = RNG,
+}: BoolOptions = {}): boolean => {
   throwOn(
     neither(chance < 0, chance > 1, !Number.isFinite(chance)),
     ERROR_CHANCE_NOT_FLOAT_BETWEEN_0_1

@@ -20,9 +20,9 @@ describe(nameOf(ts), () => {
     jest.useFakeTimers().setSystemTime(new Date().getTime());
     const currentNow = ts();
 
-    expect(ts({ ms: 'ceil' })).toBe(Math.ceil(currentNow / 1000));
-    expect(ts({ ms: 'floor' })).toBe(Math.floor(currentNow / 1000));
-    expect(ts({ ms: 'round' })).toBe(Math.round(currentNow / 1000));
-    expect(ts({ ms: 'trunc' })).toBe(Math.trunc(currentNow / 1000));
+    expect(ts({ milliseconds: 'ceil' })).toBe(Math.ceil(currentNow / 1000));
+    expect(ts({ milliseconds: 'floor' })).toBe(Math.floor(currentNow / 1000));
+    expect(ts({ milliseconds: 'round' })).toBe(Math.round(currentNow / 1000));
+    expect(ts({ milliseconds: 'trunc' })).toBe(Math.trunc(currentNow / 1000));
   });
 });

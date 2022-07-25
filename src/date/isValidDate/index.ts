@@ -14,13 +14,8 @@ export type IsValidDateOptions = {
  */
 export const isValidDate = (
   value: DateValue,
-  options: IsValidDateOptions = {}
+  { allowFalsy = false }: IsValidDateOptions = {}
 ): value is DateValue => {
-  const { allowFalsy }: IsValidDateOptions = {
-    allowFalsy: false,
-    ...options,
-  };
-
   if (!value) {
     return allowFalsy ? true : false;
   }

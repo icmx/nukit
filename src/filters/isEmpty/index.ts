@@ -23,13 +23,8 @@ export type IsEmptyOptions = {
  */
 export const isEmpty = (
   value: unknown,
-  options: IsEmptyOptions = {}
+  { emptyValues = [NaN, ''] }: IsEmptyOptions = {}
 ): boolean => {
-  const { emptyValues }: IsEmptyOptions = {
-    emptyValues: [NaN, ''],
-    ...options,
-  };
-
   throwOn(!isArray(emptyValues), ERROR_EMPTY_VALUES_NOT_ARRAY);
 
   return neither(

@@ -1,3 +1,4 @@
+import { RNG } from '../../constants';
 import { throwOn } from '../../error/throwOn';
 import { neither } from '../../filters/neither';
 import { WithRNGOption } from '../../types/WithRNGOption';
@@ -23,19 +24,15 @@ export type IntOptions = {
 /**
  * Returns random integer number value.
  */
-export const int = (options: IntOptions = {}): number => {
-  const { min, max, rng }: IntOptions = {
-    min: Number.MIN_SAFE_INTEGER,
-    max: Number.MAX_SAFE_INTEGER,
-    rng: Math.random,
-    ...options,
-  };
-
+export const int = ({
+  min = Number.MIN_SAFE_INTEGER,
+  max = Number.MAX_SAFE_INTEGER,
+  rng = RNG,
+}: IntOptions = {}): number => {
   throwOn(
     neither(!Number.isSafeInteger(min), !Number.isSafeInteger(max)),
     ERROR_MIN_MAX_ARE_NOT_SAFE_INT
   );
-
   throwOn(min > max, ERROR_MIN_GT_MAX);
 
   return (
