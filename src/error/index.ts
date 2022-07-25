@@ -1,1 +1,1 @@
-export * from './throwOn';
+export * from './when';

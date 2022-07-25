@@ -1,5 +1,5 @@
 import { RNG } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { neither } from '../../filters/neither';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { float } from '../float';
@@ -20,7 +20,7 @@ export const bool = ({
   chance = 0.5,
   rng = RNG,
 }: BoolOptions = {}): boolean => {
-  throwOn(
+  when(
     neither(chance < 0, chance > 1, !Number.isFinite(chance)),
     ERROR_CHANCE_NOT_FLOAT_BETWEEN_0_1
   );

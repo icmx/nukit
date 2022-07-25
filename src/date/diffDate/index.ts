@@ -1,5 +1,5 @@
 import { AVG_DIM } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { neither } from '../../filters/neither';
 import { DateValue } from '../../types/DateValue';
 import { isValidDate } from '../isValidDate';
@@ -30,7 +30,7 @@ export const diffDate = (
   from: DateValue,
   to: DateValue
 ): DiffDateResult => {
-  throwOn(
+  when(
     neither(!isValidDate(from), !isValidDate(to)),
     ERROR_INVALID_DATE
   );

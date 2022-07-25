@@ -1,4 +1,4 @@
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { isEmpty } from '../../filters/isEmpty';
 import { ERROR_MUST_BE_NON_EMPTY_ARRAY } from './constants';
 import { getKeyFallback } from './utils';
@@ -13,7 +13,7 @@ export const byKeys = <I = unknown, K = number | string>(
 ) => {
   const indexes = new Map(order.map((value, index) => [value, index]));
 
-  throwOn(isEmpty(order), ERROR_MUST_BE_NON_EMPTY_ARRAY);
+  when(isEmpty(order), ERROR_MUST_BE_NON_EMPTY_ARRAY);
 
   return (previous: I, next: I): number => {
     return indexes.get(getKey(previous))! - indexes.get(getKey(next))!;

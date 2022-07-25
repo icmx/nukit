@@ -1,5 +1,5 @@
 import { RNG } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { isArray } from '../../filters/isArray';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import {
@@ -25,7 +25,7 @@ export const weighted = <T = unknown>(
   values: WeightedEntry<T>[],
   { rng = RNG }: WeightedOptions = {}
 ): T => {
-  throwOn(!values.length, ERROR_VALUES_IS_EMPTY);
+  when(!values.length, ERROR_VALUES_IS_EMPTY);
 
   let sum = 0;
 
@@ -33,18 +33,15 @@ export const weighted = <T = unknown>(
     const value = values[i];
     const weight = value[1];
 
-    throwOn(!isArray(value), ERROR_VALUES_HAS_NON_ARRAY_ITEM);
-    throwOn(
-      !Number.isFinite(weight),
-      ERROR_VALUES_HAS_NON_FINITE_WEIGHT
-    );
+    when(!isArray(value), ERROR_VALUES_HAS_NON_ARRAY_ITEM);
+    when(!Number.isFinite(weight), ERROR_VALUES_HAS_NON_FINITE_WEIGHT);
 
     if (weight > 0) {
       sum += weight;
     }
   }
 
-  throwOn(sum === 0, ERROR_NO_VALID_WEIGHTS);
+  when(sum === 0, ERROR_NO_VALID_WEIGHTS);
 
   let selected = rng() * sum;
   let total = 0;

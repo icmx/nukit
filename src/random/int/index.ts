@@ -1,5 +1,5 @@
 import { RNG } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { neither } from '../../filters/neither';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import {
@@ -29,11 +29,11 @@ export const int = ({
   max = Number.MAX_SAFE_INTEGER,
   rng = RNG,
 }: IntOptions = {}): number => {
-  throwOn(
+  when(
     neither(!Number.isSafeInteger(min), !Number.isSafeInteger(max)),
     ERROR_MIN_MAX_ARE_NOT_SAFE_INT
   );
-  throwOn(min > max, ERROR_MIN_GT_MAX);
+  when(min > max, ERROR_MIN_GT_MAX);
 
   return (
     Math.floor(rng() * (Math.floor(max) - Math.ceil(min) + 1)) +

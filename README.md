@@ -92,7 +92,7 @@ Just like random utilities above, but with seeding support.
 
 ### Error
 
-  - [**throwOn**](src/error/throwOn/index.ts) — throws an error if predicate returns true
+  - [**when**](src/error/when/index.ts) — throws an error if predicate returns true
 
 ### RegExp
 

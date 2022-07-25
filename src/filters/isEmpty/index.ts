@@ -1,4 +1,4 @@
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { isArray } from '../isArray';
 import { isNull } from '../isNull';
 import { isObject } from '../isObject';
@@ -25,7 +25,7 @@ export const isEmpty = (
   value: unknown,
   { emptyValues = [NaN, ''] }: IsEmptyOptions = {}
 ): boolean => {
-  throwOn(!isArray(emptyValues), ERROR_EMPTY_VALUES_NOT_ARRAY);
+  when(!isArray(emptyValues), ERROR_EMPTY_VALUES_NOT_ARRAY);
 
   return neither(
     isUndefined(value),

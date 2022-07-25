@@ -1,37 +1,37 @@
 import { nameOf } from '../../../test/utils/nameOf';
-import { throwOn } from './index';
+import { when } from './index';
 
-describe(nameOf(throwOn), () => {
+describe(nameOf(when), () => {
   const ofFalse = () => false;
   const ofTrue = () => true;
 
   it('should not throw an error if predicate returns false', () => {
     expect(() => {
-      throwOn(false);
+      when(false);
     }).not.toThrow();
 
     expect(() => {
       // @ts-ignore
-      throwOn(0 === 1);
+      when(0 === 1);
     }).not.toThrow();
 
     expect(() => {
       // @ts-ignore
-      throwOn(ofFalse());
+      when(ofFalse());
     }).not.toThrow();
   });
 
   it('should throw an error if predicate returns true', () => {
     expect(() => {
-      throwOn(true);
+      when(true);
     }).toThrow();
 
     expect(() => {
-      throwOn(ofTrue());
+      when(ofTrue());
     }).toThrow();
 
     expect(() => {
-      throwOn(0 === 0);
+      when(0 === 0);
     }).toThrow();
   });
 });

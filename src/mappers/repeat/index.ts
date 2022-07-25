@@ -1,4 +1,4 @@
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import {
   ERROR_TIMES_LT_1,
   ERROR_TIMES_NOT_SAFE_INT,
@@ -19,8 +19,8 @@ export const repeat = <T = void>(
   action: (step: number) => T,
   { times = 1 }: RepeatOptions = {}
 ): T[] => {
-  throwOn(!Number.isSafeInteger(times), ERROR_TIMES_NOT_SAFE_INT);
-  throwOn(times < 1, ERROR_TIMES_LT_1);
+  when(!Number.isSafeInteger(times), ERROR_TIMES_NOT_SAFE_INT);
+  when(times < 1, ERROR_TIMES_LT_1);
 
   let result: T[] = [];
 

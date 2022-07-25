@@ -4,7 +4,7 @@ import { resolvePredicate } from '../../utils/resolvePredicate';
 /**
  * Throws an error if predicate returns true.
  */
-export const throwOn = (
+export const when = (
   predicate: Predicate,
   error = new Error()
 ): void => {

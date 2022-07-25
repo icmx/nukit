@@ -1,5 +1,5 @@
 import { RNG, WORD_CHARS } from '../../constants';
-import { throwOn } from '../../error/throwOn';
+import { when } from '../../error/when';
 import { WithRNGOption } from '../../types/WithRNGOption';
 import { pick } from '../pick';
 import { ERROR_ALPHABET_IS_EMPTY } from './constants';
@@ -19,7 +19,7 @@ export const char = ({
   alphabet = WORD_CHARS,
   rng = RNG,
 }: CharOptions = {}): string => {
-  throwOn(alphabet === '', ERROR_ALPHABET_IS_EMPTY);
+  when(alphabet === '', ERROR_ALPHABET_IS_EMPTY);
 
   return pick<string>([...alphabet], { rng });
 };
