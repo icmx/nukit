@@ -1,6 +1,6 @@
 import { FloatHandling } from '../../types/FloatHandling';
 
-export type TsOptions = {
+export interface TsOptions {
   /**
    * Date to use for timestamp creation. Current by default.
    */
@@ -14,7 +14,7 @@ export type TsOptions = {
    * @default 'keep'
    */
   milliseconds?: FloatHandling;
-};
+}
 
 /**
  * Returns a Unix timestamp for current or specified date.

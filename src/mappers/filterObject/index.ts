@@ -1,12 +1,12 @@
 import { isObject } from '../../filters/isObject';
 import { Entry } from '../../types/Entry';
 
-export type FilterObjectOptions = {
+export interface FilterObjectOptions {
   /**
    * Enable same filtering over sub-objects (if any).
    */
   recursive?: boolean;
-};
+}
 
 /**
  * Filters object entries by predicate like standard array's filter.

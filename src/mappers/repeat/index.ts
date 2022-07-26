@@ -4,12 +4,12 @@ import {
   ERROR_TIMES_NOT_SAFE_INT,
 } from './constants';
 
-export type RepeatOptions = {
+export interface RepeatOptions {
   /**
    * How many times to repeat some action. Once by default.
    */
   times?: number;
-};
+}
 
 /**
  * Repeats some action for a specified number of times. Returns array

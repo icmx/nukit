@@ -6,7 +6,7 @@ import { isUndefined } from '../isUndefined';
 import { neither } from '../neither';
 import { ERROR_EMPTY_VALUES_NOT_ARRAY } from './constants';
 
-export type IsEmptyOptions = {
+export interface IsEmptyOptions {
   /**
    * Values that sould be considered as empty. By default it's NaN and
    * empty string.
@@ -15,7 +15,7 @@ export type IsEmptyOptions = {
    * i.e. set to empty array — [].
    */
   emptyValues?: any[];
-};
+}
 
 /**
  * Returns true if value is empty, i.e. undefined, null, empty string,

@@ -2,7 +2,7 @@ import { OF_UNDEFINED } from '../../constants';
 import { isBoolean } from '../../filters/isBoolean';
 import { FallbackHandler } from '../../types/FallbackHAndler';
 
-export type ToBooleanOptions = {
+export interface ToBooleanOptions {
   /**
    * Values that should be treated as boolean false.
    * @default [ 'false' ]
@@ -21,7 +21,7 @@ export type ToBooleanOptions = {
    * Throws `TypeError` if manually unset.
    */
   onFallback?: FallbackHandler;
-};
+}
 
 /**
  * Maps value into a boolean if possible.

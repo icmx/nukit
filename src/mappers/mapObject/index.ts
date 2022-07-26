@@ -1,12 +1,12 @@
 import { isObject } from '../../filters/isObject';
 import { Entry } from '../../types/Entry';
 
-export type MapObjectOptions = {
+export interface MapObjectOptions {
   /**
    * Enable same mapping over sub-objects (if any).
    */
   recursive?: boolean;
-};
+}
 
 /**
  * Maps object entries by callback function like standard array's map.

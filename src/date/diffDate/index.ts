@@ -5,7 +5,7 @@ import { DateValue } from '../../types/DateValue';
 import { isValidDate } from '../isValidDate';
 import { ERROR_INVALID_DATE } from './constants';
 
-export type DiffDateResultUnits = {
+export interface DiffDateResultUnits {
   milliseconds: number;
   seconds: number;
   minutes: number;
@@ -13,14 +13,14 @@ export type DiffDateResultUnits = {
   days: number;
   months: number;
   years: number;
-};
+}
 
-export type DiffDateResult = {
+export interface DiffDateResult {
   total: DiffDateResultUnits;
   remain: DiffDateResultUnits;
   raw: number;
   inversed: boolean;
-};
+}
 
 /**
  * Returns total amount of time between two dates (years, months, days,

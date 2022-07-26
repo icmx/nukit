@@ -1,4 +1,4 @@
-export type IsNumberOptions = {
+export interface IsNumberOptions {
   /**
    * Return true if value is positive or negative Infinity.
    */
@@ -8,7 +8,7 @@ export type IsNumberOptions = {
    * Return true if value is NaN.
    */
   allowNaN?: boolean;
-};
+}
 
 /**
  * Returns true if value is a number.

@@ -1,6 +1,6 @@
 import { isString } from '../../filters/isString';
 
-export type ToStringOptions = {
+export interface ToStringOptions {
   /**
    * Arguments to be passed into `value.toString()` or
    * `JSON.stringify()` if `useToJSON` options is set to true.
@@ -12,7 +12,7 @@ export type ToStringOptions = {
    * default `toString()`.
    */
   useToJSON?: boolean;
-};
+}
 
 /**
  * Maps value into a string.

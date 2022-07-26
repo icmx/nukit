@@ -2,7 +2,7 @@ import { OF_UNDEFINED } from '../../constants';
 import { FallbackHandler } from '../../types/FallbackHandler';
 import { FloatHandling } from '../../types/FloatHandling';
 
-export type ToNumberOptions = {
+export interface ToNumberOptions {
   /**
    * How to handle decimal part in a value, if any.
    *
@@ -19,7 +19,7 @@ export type ToNumberOptions = {
    * Throws `TypeError` if manually unset.
    */
   onFallback?: FallbackHandler;
-};
+}
 
 /**
  * Maps value into a number if possible.
