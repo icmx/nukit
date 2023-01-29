@@ -105,9 +105,12 @@ Just like random utilities above, but with seeding support.
 # run tests
 npm run test
 
+# get tests coverage report
+npm run coverage
+
 # build a package
 npm run build
 
-# publish a release (requires np: npm install --global np)
-np
+# publish a release
+npm run release
 ```
