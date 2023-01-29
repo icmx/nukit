@@ -25,7 +25,7 @@ const value = pick(['apple', 'banana', 'carrot']);
 ## Why?
 
   - TypeScript: nice types support
-  - Small & Simple: 37 essential functions in about 5 kilobytes of compiled code
+  - Small & Simple: 37 essential functions in about 5 KBs of code
   - Modern: doesn't rewrites ESNext features that already exists
 
 ## Contents
@@ -82,7 +82,7 @@ Just like random utilities above, but with seeding support.
   - [**seedStr**](src/seedable/seedStr/index.ts) — creates seeded version of str function
   - [**seedPick**](src/seedable/seedPick/index.ts) — creates seeded version of pick function
   - [**seedShuffle**](src/seedable/seedShuffle/index.ts) — creates seeded version of shuffle function
-  - [**weighted**](src/seedable/seedWeighted/index.ts) — creates seeded version of weighted function
+  - [**seedWeighted**](src/seedable/seedWeighted/index.ts) — creates seeded version of weighted function
 
 ### Date
 
