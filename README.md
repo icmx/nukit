@@ -69,7 +69,7 @@ const value = pick(['apple', 'banana', 'carrot']);
   - [**str**](src/random/str/index.ts) — returns random string value
   - [**pick**](src/random/pick/index.ts) — returns random value from an array of one or more items
   - [**shuffle**](src/random/shuffle/index.ts) — returns shuffled copy of array
-  - [**weighted**](src/random/weghted/index.ts) — returns weighted random value from an array of values and weights
+  - [**weighted**](src/random/weighted/index.ts) — returns weighted random value from an array of values and weights
 
 ### Seedable Random
 

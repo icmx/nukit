@@ -1,4 +1,4 @@
-import { weighted, WeightedEntry, WeightedOptions } from '../../random/weghted';
+import { weighted, WeightedEntry, WeightedOptions } from '../../random/weighted';
 import { createMulberry32RNG } from '../../utils/createMulberry32RNG'
 
 /**
