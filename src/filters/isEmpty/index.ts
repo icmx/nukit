@@ -8,7 +8,7 @@ import { ERROR_EMPTY_VALUES_NOT_ARRAY } from './constants';
 
 export interface IsEmptyOptions {
   /**
-   * Values that sould be considered as empty. By default it's NaN and
+   * Values that should be considered as empty. By default it's NaN and
    * empty string.
    *
    * To disallow NaN and empty string as empty values should be unset,

@@ -1,6 +1,6 @@
 import { nameOf } from '../../../test/utils/nameOf';
 import { ERROR_NOT_ARRAY } from './constants';
-import { uniqie, byUnique } from './index';
+import { unique, byUnique } from './index';
 
 const samples = [
   [
@@ -17,26 +17,26 @@ const samples = [
   ],
 ];
 
-describe(nameOf(uniqie), () => {
+describe(nameOf(unique), () => {
   it('should throw an error if value is not an array', () => {
     expect(() => {
       // @ts-ignore
-      const error = uniqie(1);
+      const error = unique(1);
     }).toThrow(ERROR_NOT_ARRAY);
 
     expect(() => {
       // @ts-ignore
-      const error = uniqie('not an array');
+      const error = unique('not an array');
     }).toThrow(ERROR_NOT_ARRAY);
   });
 
   it('should return empty array if value is empty array', () => {
-    expect(uniqie([])).toEqual([]);
+    expect(unique([])).toEqual([]);
   });
 
   it('should return array without duplicates', () => {
     samples.forEach(([source, result]) => {
-      expect(uniqie<any>(source)).toEqual(result);
+      expect(unique<any>(source)).toEqual(result);
     });
   });
 });

@@ -3,7 +3,7 @@ import { ERROR_NOT_BOOLEAN } from './constants';
 import { resolvePredicate } from './index';
 
 describe(nameOf(resolvePredicate), () => {
-  it('should throw an error if preicate is not a boolean not returns a boolean', () => {
+  it('should throw an error if predicate is not a boolean not returns a boolean', () => {
     expect(() => {
       // @ts-ignore
       const error = resolvePredicate(undefined);

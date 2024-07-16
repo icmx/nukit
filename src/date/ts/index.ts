@@ -7,7 +7,7 @@ export interface TsOptions {
   from?: Date;
 
   /**
-   * How to handle milliseconds part in a timetamp.
+   * How to handle milliseconds part in a timestamp.
    *
    * - `ceil`, `floor`, `round` and `trunc` are standard Math handlers
    * - `keep` is default option to just keep milliseconds

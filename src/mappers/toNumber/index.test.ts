@@ -9,7 +9,7 @@ describe(nameOf(toNumber), () => {
     expect(toNumber({})).toBe(undefined);
   });
 
-  it('should return undefined if values contains parseable numbers but entirely not numbers', () => {
+  it('should return undefined if values contains parsable numbers but entirely not numbers', () => {
     expect(toNumber('42ab')).toBe(undefined);
     expect(toNumber('ab42')).toBe(undefined);
   });

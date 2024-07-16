@@ -11,7 +11,7 @@ export type StrOptions = {
   alphabet?: string;
 
   /**
-   * Minimum posible length of returned string, inclusive.
+   * Minimum possible length of returned string, inclusive.
    */
   minLength?: number;
 

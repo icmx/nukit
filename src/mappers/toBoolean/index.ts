@@ -1,6 +1,6 @@
 import { OF_UNDEFINED } from '../../constants';
 import { isBoolean } from '../../filters/isBoolean';
-import { FallbackHandler } from '../../types/FallbackHAndler';
+import { FallbackHandler } from '../../types/FallbackHandler';
 
 export interface ToBooleanOptions {
   /**
