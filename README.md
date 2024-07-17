@@ -47,8 +47,7 @@ const value = pick(['apple', 'banana', 'carrot']);
     - [**and**](src/filters/and/index.ts) — alias
   - [**neither**](src/filters/neither/index.ts) — returns true if at least one of predicates is true
     - [**or**](src/filters/or/index.ts) — alias
-  - [**unique**](src/filters/unique/index.ts) — returns an array without duplicates
-    - See also: **byUnique**, a predicate version for array chaining
+  - [**toUnique**](src/filters/toUnique/index.ts) — creates a predicate function for standard Array.prototype.filter to filter unique values
 
 ### Mappers
 
